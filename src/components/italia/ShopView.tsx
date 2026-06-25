@@ -8,11 +8,12 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { SlidersHorizontal, Search, X, Grid3x3 } from 'lucide-react';
+import { SlidersHorizontal, Search, X, Grid3x3, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 const SHAPES = ['round', 'square', 'rectangle', 'aviator', 'cat-eye', 'oval', 'hexagon'];
 const GENDERS = ['men', 'women', 'unisex', 'kids'];
+const PAGE_SIZE = 24;
 
 export function ShopView() {
   const navigate = useStore((s) => s.navigate);
@@ -66,6 +67,18 @@ export function ShopView() {
   };
 
   const activeFilters = selectedShapes.length + selectedGenders.length;
+
+  // Reset to page 1 when filters change - use derived state pattern
+  const filterKey = `${selectedCategory}-${localSearch}-${priceRange[0]}-${priceRange[1]}-${selectedShapes.join(',')}-${selectedGenders.join(',')}-${sortBy}`;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [lastFilterKey, setLastFilterKey] = useState(filterKey);
+  if (filterKey !== lastFilterKey) {
+    setLastFilterKey(filterKey);
+    setCurrentPage(1);
+  }
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paginated = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
   const filtersContent = (
     <div className="space-y-5">
@@ -250,15 +263,67 @@ export function ShopView() {
           {/* Product grid */}
           <div className="flex-1 min-w-0">
             <p className="text-sm text-slate-500 mb-3 flex items-center gap-1.5">
-              <Grid3x3 className="w-4 h-4" /> Showing {filtered.length} product{filtered.length !== 1 ? 's' : ''}
+              <Grid3x3 className="w-4 h-4" /> Showing {paginated.length} of {filtered.length} product{filtered.length !== 1 ? 's' : ''}
+              {totalPages > 1 && <span className="ml-1">· Page {currentPage} of {totalPages}</span>}
             </p>
 
             {filtered.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-                {filtered.map((p, i) => (
-                  <ProductCard key={p.id} product={p} index={i} />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+                  {paginated.map((p, i) => (
+                    <ProductCard key={p.id} product={p} index={i} />
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-8 pb-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={currentPage === 1}
+                      onClick={() => { setCurrentPage((p) => Math.max(1, p - 1)); if (typeof window !== 'undefined') window.scrollTo({ top: 200, behavior: 'smooth' }); }}
+                      className="rounded-full"
+                    >
+                      <ChevronLeft className="w-4 h-4" /> Prev
+                    </Button>
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: Math.min(totalPages, 7) }).map((_, idx) => {
+                        let pageNum;
+                        if (totalPages <= 7) {
+                          pageNum = idx + 1;
+                        } else if (currentPage <= 4) {
+                          pageNum = idx + 1;
+                        } else if (currentPage >= totalPages - 3) {
+                          pageNum = totalPages - 6 + idx;
+                        } else {
+                          pageNum = currentPage - 3 + idx;
+                        }
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => { setCurrentPage(pageNum); if (typeof window !== 'undefined') window.scrollTo({ top: 200, behavior: 'smooth' }); }}
+                            className={`w-9 h-9 rounded-full text-sm font-medium transition-colors ${
+                              currentPage === pageNum ? 'bg-italia-navy text-white' : 'bg-white text-italia-navy hover:bg-italia-blue/10 border border-slate-200'
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={currentPage === totalPages}
+                      onClick={() => { setCurrentPage((p) => Math.min(totalPages, p + 1)); if (typeof window !== 'undefined') window.scrollTo({ top: 200, behavior: 'smooth' }); }}
+                      className="rounded-full"
+                    >
+                      Next <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </div>
+                )}
+              </>
             ) : (
               <div className="bg-white rounded-2xl p-12 text-center border border-slate-100">
                 <Search className="w-12 h-12 text-slate-300 mx-auto mb-3" />

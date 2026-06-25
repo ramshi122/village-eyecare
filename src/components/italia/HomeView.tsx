@@ -33,7 +33,7 @@ const HERO_SLIDES = [
     cta: 'Shop Eyeglasses',
     category: 'eyeglasses' as const,
     bg: 'gradient-hero',
-    image: 'https://picsum.photos/seed/italia-hero-1/800/600',
+    image: 'https://sfile.chatglm.cn/images-ppt/d8064ece8e71.jpg',
   },
   {
     title: 'Step Into the Sun',
@@ -42,7 +42,7 @@ const HERO_SLIDES = [
     cta: 'Shop Sunglasses',
     category: 'sunglasses' as const,
     bg: 'gradient-royal',
-    image: 'https://picsum.photos/seed/italia-hero-2/800/600',
+    image: 'https://sfile.chatglm.cn/images-ppt/ba465e5bfa1c.jpg',
   },
   {
     title: 'Try Before You Buy',
@@ -51,7 +51,7 @@ const HERO_SLIDES = [
     cta: 'Try On Now',
     action: 'tryon' as const,
     bg: 'gradient-italia',
-    image: 'https://picsum.photos/seed/italia-hero-3/800/600',
+    image: 'https://sfile.chatglm.cn/images-ppt/822d54cbb1f7.webp',
   },
 ];
 
@@ -68,7 +68,7 @@ export function HomeView() {
 
   const featured = getFeaturedProducts().slice(0, 8);
   const newArrivals = getNewArrivals().slice(0, 4);
-  const bestSellers = getBestSellers().slice(0, 4);
+  const bestSellers = getBestSellers().slice(0, 8);
   const offers = getOfferProducts().slice(0, 4);
 
   return (
@@ -314,7 +314,7 @@ export function HomeView() {
             </div>
             <div className="relative bg-italia-ivory min-h-[280px] md:min-h-full flex items-center justify-center p-6">
               <div className="relative w-full max-w-sm aspect-square">
-                <img src="https://picsum.photos/seed/tryon-demo/500/500" alt="Virtual Try-On Demo" className="rounded-2xl shadow-xl w-full h-full object-cover" />
+                <img src="https://sfile.chatglm.cn/images-ppt/d8064ece8e71.jpg" alt="Virtual Try-On Demo" className="rounded-2xl shadow-xl w-full h-full object-cover" />
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
