@@ -32,10 +32,16 @@ interface AppState {
   isSearchOpen: boolean;
   isCartOpen: boolean;
   isMenuOpen: boolean;
+  isPasswordPromptOpen: boolean;
+  adminUnlocked: boolean;
 
   // Actions
   navigate: (view: ViewName, productId?: string | null, category?: CategorySlug | null) => void;
   setSearchQuery: (q: string) => void;
+  openPasswordPrompt: () => void;
+  closePasswordPrompt: () => void;
+  verifyAdminPassword: (password: string) => boolean;
+  lockAdmin: () => void;
 
   addToCart: (product: Product, quantity?: number, lensType?: string, lensPrice?: number) => void;
   removeFromCart: (productId: string) => void;
@@ -110,6 +116,8 @@ export const useStore = create<AppState>()(
       isSearchOpen: false,
       isCartOpen: false,
       isMenuOpen: false,
+      isPasswordPromptOpen: false,
+      adminUnlocked: false,
 
       navigate: (view, productId = null, category = null) => {
         set({ currentView: view, selectedProductId: productId, selectedCategory: category, isMenuOpen: false, isSearchOpen: false });
@@ -117,6 +125,17 @@ export const useStore = create<AppState>()(
       },
 
       setSearchQuery: (q) => set({ searchQuery: q }),
+
+      openPasswordPrompt: () => set({ isPasswordPromptOpen: true }),
+      closePasswordPrompt: () => set({ isPasswordPromptOpen: false }),
+      verifyAdminPassword: (password) => {
+        if (password === '8950888988') {
+          set({ adminUnlocked: true, isPasswordPromptOpen: false });
+          return true;
+        }
+        return false;
+      },
+      lockAdmin: () => set({ adminUnlocked: false }),
 
       addToCart: (product, quantity = 1, lensType, lensPrice = 0) => {
         const cart = get().cart;
@@ -246,6 +265,7 @@ export const useStore = create<AppState>()(
         prescriptions: state.prescriptions,
         appliedCoupon: state.appliedCoupon,
         couponDiscount: state.couponDiscount,
+        adminUnlocked: state.adminUnlocked,
       }),
     }
   )

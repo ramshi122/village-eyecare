@@ -12,7 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import {
   LayoutDashboard, Package, ShoppingBag, Users, BarChart3, Tag,
   Plus, Search, Edit, Trash2, TrendingUp, IndianRupee, Clock, Check,
-  X, ChevronLeft, Settings, AlertTriangle
+  X, ChevronLeft, Settings, AlertTriangle, Lock
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
@@ -22,12 +22,14 @@ import { Product } from '@/lib/types';
 export function AdminView() {
   const navigate = useStore((s) => s.navigate);
   const user = useStore((s) => s.user);
+  const login = useStore((s) => s.login);
   const adminProducts = useStore((s) => s.adminProducts);
   const adminOrders = useStore((s) => s.adminOrders);
   const updateOrderStatus = useStore((s) => s.updateOrderStatus);
   const addProduct = useStore((s) => s.addProduct);
   const updateProduct = useStore((s) => s.updateProduct);
   const deleteProduct = useStore((s) => s.deleteProduct);
+  const lockAdmin = useStore((s) => s.lockAdmin);
 
   const [search, setSearch] = useState('');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -42,27 +44,39 @@ export function AdminView() {
     lowStock: adminProducts.filter((p) => p.stock < 20).length,
   };
 
-  // Auto-login as admin if no user (5-tap secret access)
-  const login = useStore((s) => s.login);
-  useEffect(() => {
-    if (!user) {
-      login('admin@villageeyecare.com', 'Store Admin');
-    }
-  }, [user, login]);
+  // Admin gate: requires unlocked state (via 5-tap + password)
+  const adminUnlocked = useStore((s) => s.adminUnlocked);
+  const openPasswordPrompt = useStore((s) => s.openPasswordPrompt);
 
-  // Show loading while auto-logging in
-  if (!user || user.role !== 'admin') {
+  useEffect(() => {
+    // If user navigates directly to admin without unlocking, prompt for password
+    if (!adminUnlocked) {
+      openPasswordPrompt();
+    }
+  }, [adminUnlocked, openPasswordPrompt]);
+
+  if (!adminUnlocked) {
     return (
       <div className="animate-fade-in min-h-[70vh] flex items-center justify-center px-4">
         <Card className="max-w-md p-8 border-slate-200 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-italia-blue/10 flex items-center justify-center mx-auto mb-4 animate-pulse">
+          <div className="w-16 h-16 rounded-2xl bg-italia-blue/10 flex items-center justify-center mx-auto mb-4">
             <Settings className="w-8 h-8 text-italia-blue animate-spin" />
           </div>
-          <h1 className="font-serif-italia text-2xl font-bold text-italia-navy mb-2">Loading Admin Panel...</h1>
-          <p className="text-sm text-slate-500">Please wait</p>
+          <h1 className="font-serif-italia text-2xl font-bold text-italia-navy mb-2">Admin Access</h1>
+          <p className="text-sm text-slate-500 mb-4">
+            Tap the logo 5 times and enter the password to access the admin panel.
+          </p>
+          <Button onClick={() => openPasswordPrompt()} className="bg-italia-navy hover:bg-italia-blue rounded-full">
+            <Lock className="w-4 h-4 mr-1.5" /> Enter Password
+          </Button>
         </Card>
       </div>
     );
+  }
+
+  // Auto-login as admin if unlocked but not logged in
+  if (!user) {
+    login('admin@villageeyecare.com', 'Store Admin');
   }
 
   const filteredProducts = adminProducts.filter(
@@ -93,9 +107,18 @@ export function AdminView() {
             <Badge className="bg-italia-gold text-white border-0 hover:bg-italia-gold mb-1">Admin Panel</Badge>
             <h1 className="font-serif-italia text-2xl lg:text-3xl font-bold text-italia-navy">Village Eyecare Dashboard</h1>
           </div>
-          <Button onClick={() => navigate('account')} variant="outline" className="rounded-full">
-            <Settings className="w-4 h-4 mr-1.5" /> Settings
-          </Button>
+          <div className="flex gap-2">
+            <Button onClick={() => navigate('account')} variant="outline" className="rounded-full">
+              <Settings className="w-4 h-4 mr-1.5" /> Settings
+            </Button>
+            <Button
+              onClick={() => { lockAdmin(); toast.success('Admin panel locked'); navigate('home'); }}
+              variant="outline"
+              className="rounded-full text-red-600 hover:bg-red-50 border-red-200"
+            >
+              <Lock className="w-4 h-4 mr-1.5" /> Lock
+            </Button>
+          </div>
         </div>
 
         <Tabs defaultValue="dashboard" className="w-full">

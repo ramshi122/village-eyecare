@@ -19,9 +19,11 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // 5-tap logo → admin panel (secret access)
+  // 5-tap logo → password prompt → admin panel (secret access)
   const tapCountRef = useRef(0);
   const tapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openPasswordPrompt = useStore((s) => s.openPasswordPrompt);
+  const adminUnlocked = useStore((s) => s.adminUnlocked);
 
   const handleLogoClick = () => {
     tapCountRef.current += 1;
@@ -34,13 +36,18 @@ export function Header() {
     if (tapCountRef.current >= 5) {
       tapCountRef.current = 0;
       if (tapTimerRef.current) clearTimeout(tapTimerRef.current);
-      toast.success('Admin access unlocked!', { duration: 1500 });
-      navigate('admin');
+      if (adminUnlocked) {
+        toast.success('Welcome back, Admin!', { duration: 1500 });
+        navigate('admin');
+      } else {
+        toast.info('Enter admin password to continue', { duration: 1500 });
+        openPasswordPrompt();
+      }
       return;
     }
 
     if (tapCountRef.current === 3) {
-      toast.info(`${5 - tapCountRef.current} more taps for admin panel`, { duration: 1000 });
+      toast.info(`${5 - tapCountRef.current} more taps for admin`, { duration: 1000 });
     }
 
     // Navigate home only on first tap

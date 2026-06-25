@@ -16,6 +16,7 @@ import { OrdersView } from '@/components/italia/OrdersView';
 import { WishlistView } from '@/components/italia/WishlistView';
 import { WhatsAppWidget } from '@/components/italia/WhatsAppWidget';
 import { SearchModal } from '@/components/italia/SearchModal';
+import { AdminPasswordPrompt } from '@/components/italia/AdminPasswordPrompt';
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -71,6 +72,7 @@ export default function Home() {
       {/* Global UI */}
       <WhatsAppWidget />
       <SearchModal />
+      <AdminPasswordPrompt />
     </div>
   );
 }
