@@ -26,6 +26,7 @@ export function AccountView() {
   const wishlist = useStore((s) => s.wishlist);
   const prescriptions = useStore((s) => s.prescriptions);
   const removePrescription = useStore((s) => s.removePrescription);
+  const adminUnlocked = useStore((s) => s.adminUnlocked);
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -117,7 +118,7 @@ export function AccountView() {
               )}
             </div>
             <div className="flex gap-2">
-              {user.role === 'admin' && (
+              {user.role === 'admin' && adminUnlocked && (
                 <Button onClick={() => navigate('admin')} variant="outline" className="rounded-full">
                   Admin Panel
                 </Button>

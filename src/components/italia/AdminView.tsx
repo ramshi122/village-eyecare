@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import {
   LayoutDashboard, Package, ShoppingBag, Users, BarChart3, Tag,
   Plus, Search, Edit, Trash2, TrendingUp, IndianRupee, Clock, Check,
-  X, ChevronLeft, Settings, AlertTriangle, Lock
+  X, ChevronLeft, Settings, AlertTriangle, Lock, Sparkles
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
@@ -575,20 +575,67 @@ function ProductForm({ product, onSave, onCancel }: { product: Product | null; o
       categoryId: 'c1', categorySlug: 'eyeglasses',
       frameShape: 'round', frameColor: '', gender: 'unisex',
       material: 'Acetate', weight: '20g', size: 'Medium',
-      images: ['https://picsum.photos/seed/new-product/600/600'],
+      images: [],
       rating: 4.5, reviewCount: 0, stock: 50,
       isFeatured: false, isNew: true, isBestSeller: false, isOffer: false,
       reviews: [],
     }
   );
+  const [generatingImage, setGeneratingImage] = useState(false);
+  const [autoGenerate, setAutoGenerate] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const generateAIImage = async (): Promise<string | null> => {
+    if (!form.name) {
+      toast.error('Please enter product name first');
+      return null;
+    }
+    setGeneratingImage(true);
+    toast.info('Generating AI eyewear image... (10-15 seconds)');
+    try {
+      const res = await fetch('/api/generate-product-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          frameShape: form.frameShape,
+          frameColor: form.frameColor,
+          gender: form.gender,
+          category: form.categorySlug,
+          material: form.material,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setForm((prev) => ({ ...prev, images: [data.imageUrl, ...prev.images] }));
+        toast.success('AI image generated!');
+        return data.imageUrl;
+      } else {
+        toast.error(data.error || 'Failed to generate image');
+        return null;
+      }
+    } catch (err: any) {
+      toast.error(err.message || 'Image generation failed');
+      return null;
+    } finally {
+      setGeneratingImage(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.price) {
       toast.error('Please fill required fields');
       return;
     }
-    onSave(form);
+    // Auto-generate AI image if enabled and no images
+    let finalImages = form.images;
+    if (autoGenerate && form.images.length === 0) {
+      const imageUrl = await generateAIImage();
+      if (imageUrl) {
+        finalImages = [imageUrl];
+      }
+    }
+    onSave({ ...form, images: finalImages });
   };
 
   return (
@@ -657,9 +704,48 @@ function ProductForm({ product, onSave, onCancel }: { product: Product | null; o
           </div>
         </div>
 
+        {/* AI Image Generation */}
+        <div className="p-4 rounded-xl bg-gradient-to-br from-italia-blue/5 to-italia-gold/5 border border-italia-blue/20">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-italia-gold" />
+              <span className="text-sm font-semibold text-italia-navy">AI Image Generation</span>
+            </div>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <span className="text-xs text-slate-600">Auto-generate on save</span>
+              <input
+                type="checkbox"
+                checked={autoGenerate}
+                onChange={(e) => setAutoGenerate(e.target.checked)}
+                className="w-4 h-4 rounded accent-italia-blue"
+              />
+            </label>
+          </div>
+          <Button
+            type="button"
+            onClick={() => generateAIImage()}
+            disabled={generatingImage || !form.name}
+            className="w-full gradient-gold text-white hover:opacity-90 rounded-full"
+          >
+            {generatingImage ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                Generating AI Image...
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4 mr-2" /> Generate AI Eyewear Image Now
+              </>
+            )}
+          </Button>
+          <p className="text-[10px] text-slate-500 mt-2">
+            AI will generate a proper eyewear product photo based on the product name, shape, color, and category you entered.
+          </p>
+        </div>
+
         {/* Image URLs */}
         <div>
-          <Label className="text-xs">Product Image URLs (one per line)</Label>
+          <Label className="text-xs">Product Image URLs (one per line) — optional if AI generation used</Label>
           <Textarea
             value={form.images.join('\n')}
             onChange={(e) => setForm({ ...form, images: e.target.value.split('\n').filter((url) => url.trim()) })}

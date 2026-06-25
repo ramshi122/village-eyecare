@@ -221,8 +221,10 @@ export function Header() {
                       <button onClick={() => { navigate('prescription'); setMobileOpen(false); }} className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-italia-blue/10 text-sm font-medium text-italia-navy">Upload Prescription</button>
                       <button onClick={() => { navigate('orders'); setMobileOpen(false); }} className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-italia-blue/10 text-sm font-medium text-italia-navy">Track Order</button>
                       <button onClick={() => { navigate('account'); setMobileOpen(false); }} className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-italia-blue/10 text-sm font-medium text-italia-navy">My Account</button>
-                      <button onClick={() => { navigate('admin'); setMobileOpen(false); }} className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-italia-blue/10 text-sm font-medium text-italia-navy">Admin Panel</button>
                     </nav>
+                    <p className="text-[10px] text-slate-400 mt-3 px-3 leading-relaxed">
+                      💡 Admin access: Tap the logo 5 times and enter password
+                    </p>
 
                     <div className="mt-5 p-3 rounded-xl bg-italia-mist">
                       <p className="text-xs text-slate-600 flex items-center gap-2 mb-1">
