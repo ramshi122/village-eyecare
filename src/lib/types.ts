@@ -113,7 +113,7 @@ export interface Order {
   shipping: number;
   total: number;
   couponCode?: string;
-  paymentMethod: 'online' | 'cod';
+  paymentMethod: 'online' | 'cod' | 'upi';
   paymentStatus: 'pending' | 'paid' | 'failed';
   orderStatus: 'placed' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled';
   address: Address;

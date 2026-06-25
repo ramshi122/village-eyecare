@@ -100,14 +100,14 @@ export function Header() {
               className="flex items-center gap-2.5 group flex-shrink-0 select-none"
               title="Village Eyecare"
             >
-              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl gradient-italia flex items-center justify-center shadow-italia group-hover:scale-105 transition-transform">
-                <Glasses className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
+              <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-xl gradient-italia flex items-center justify-center shadow-italia group-hover:scale-105 transition-transform">
+                <Glasses className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
               </div>
               <div className="hidden sm:block text-left">
-                <h1 className="font-serif-italia text-lg lg:text-xl font-bold text-italia-navy leading-none tracking-tight">
+                <h1 className="font-serif-italia text-sm lg:text-base font-bold text-italia-navy leading-none tracking-tight">
                   Village Eyecare
                 </h1>
-                <p className="text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-0.5">
+                <p className="text-[8px] lg:text-[9px] uppercase tracking-[0.15em] text-slate-500 mt-0.5">
                   See Better Than Yesterday
                 </p>
               </div>

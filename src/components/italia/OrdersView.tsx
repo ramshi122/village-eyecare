@@ -62,7 +62,7 @@ export function OrdersView() {
                           } capitalize`}>{order.orderStatus}</Badge>
                         </div>
                         <p className="text-xs text-slate-500 mt-1">
-                          Placed on {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })} · {order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Paid Online'}
+                          Placed on {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })} · {order.paymentMethod === 'cod' ? 'Cash on Delivery' : order.paymentMethod === 'upi' ? 'UPI / GPay' : 'Paid Online'}
                         </p>
                       </div>
                       <div className="text-right">

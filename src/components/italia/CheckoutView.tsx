@@ -10,12 +10,15 @@ import { Badge } from '@/components/ui/badge';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
 import {
-  ChevronLeft, MapPin, CreditCard, Banknote, Check, Shield, Truck, Plus, Lock
+  ChevronLeft, MapPin, CreditCard, Banknote, Check, Shield, Truck, Plus, Lock,
+  Smartphone, Copy, MessageCircle
 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
-import { Address } from '@/lib/types';
+import { Address, Order } from '@/lib/types';
+
+const UPI_ID = 'gostr3248-1@okaxis';
 
 export function CheckoutView() {
   const navigate = useStore((s) => s.navigate);
@@ -32,8 +35,9 @@ export function CheckoutView() {
   const total = subtotal - couponDiscount + shipping;
 
   const [selectedAddressId, setSelectedAddressId] = useState(addresses[0]?.id || '');
-  const [paymentMethod, setPaymentMethod] = useState<'online' | 'cod'>('online');
+  const [paymentMethod, setPaymentMethod] = useState<'online' | 'cod' | 'upi'>('upi');
   const [showAddressForm, setShowAddressForm] = useState(addresses.length === 0);
+  const [upiPaid, setUpiPaid] = useState(false);
   const [newAddr, setNewAddr] = useState<Omit<Address, 'id'>>({
     name: '', phone: '', line1: '', line2: '', city: '', state: 'Haryana', pincode: '', isDefault: false,
   });
@@ -49,6 +53,53 @@ export function CheckoutView() {
     setNewAddr({ name: '', phone: '', line1: '', line2: '', city: '', state: 'Haryana', pincode: '', isDefault: false });
   };
 
+  const copyUpiId = () => {
+    navigator.clipboard.writeText(UPI_ID);
+    toast.success('UPI ID copied!');
+  };
+
+  const generateWhatsAppMessage = (order: Order) => {
+    const items = order.items.map((item) =>
+      `  • ${item.name} (Qty: ${item.quantity}) — ₹${((item.price + (item.lensPrice || 0)) * item.quantity).toLocaleString('en-IN')}${item.lensType ? `\n    Lens: ${item.lensType}` : ''}`
+    ).join('\n');
+
+    const msg = `🛒 *NEW ORDER — Village Eyecare* 🛒
+
+📋 *Order Number:* ${order.orderNumber}
+👤 *Customer:* ${order.customerName}
+📱 *Phone:* ${order.customerPhone}
+${order.customerEmail ? `📧 *Email:* ${order.customerEmail}\n` : ''}
+📦 *Items Ordered:*
+${items}
+
+💰 *Payment Details:*
+   Subtotal: ₹${order.subtotal.toLocaleString('en-IN')}
+   ${order.discount > 0 ? `Discount: -₹${order.discount.toLocaleString('en-IN')}${order.couponCode ? ` (${order.couponCode})` : ''}\n` : ''}   Shipping: ${order.shipping === 0 ? 'FREE' : `₹${order.shipping}`}
+   ━━━━━━━━━━━━━━━
+   *Total: ₹${order.total.toLocaleString('en-IN')}*
+   Payment: ${order.paymentMethod === 'cod' ? 'Cash on Delivery' : order.paymentMethod === 'upi' ? 'UPI / GPay' : 'Online (Razorpay)'}
+   Status: ${order.paymentStatus === 'paid' ? '✅ Paid' : '⏳ Pending'}
+
+📍 *Delivery Address:*
+   ${order.address.name}
+   ${order.address.line1}${order.address.line2 ? `, ${order.address.line2}` : ''}
+   ${order.address.city}, ${order.address.state} - ${order.address.pincode}
+   Phone: ${order.address.phone}
+
+🕐 *Order Date:* ${new Date(order.createdAt).toLocaleString('en-IN')}
+
+Please confirm and process this order. Thank you! 🙏`;
+
+    return encodeURIComponent(msg);
+  };
+
+  const sendWhatsAppNotification = (order: Order) => {
+    const msg = generateWhatsAppMessage(order);
+    const whatsappUrl = `https://wa.me/${STORE_INFO.whatsapp}?text=${msg}`;
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+  };
+
   const handlePlaceOrder = () => {
     if (!selectedAddressId) {
       toast.error('Please select a delivery address');
@@ -57,27 +108,13 @@ export function CheckoutView() {
     const addr = addresses.find((a) => a.id === selectedAddressId);
     if (!addr) return;
 
-    // Simulate Razorpay flow
-    if (paymentMethod === 'online') {
-      toast.success('Redirecting to Razorpay...', { duration: 1500 });
-      setTimeout(() => {
-        const order = placeOrder({
-          items: cart,
-          subtotal,
-          discount: couponDiscount,
-          shipping,
-          total,
-          couponCode: appliedCoupon || undefined,
-          paymentMethod,
-          address: addr,
-          customerName: addr.name,
-          customerPhone: addr.phone,
-          customerEmail: user?.email,
-        });
-        toast.success('Payment successful!');
-        setTimeout(() => navigate('order-success', null, null), 800);
-      }, 1200);
-    } else {
+    // UPI payment requires confirmation
+    if (paymentMethod === 'upi' && !upiPaid) {
+      toast.error('Please complete the UPI payment first');
+      return;
+    }
+
+    const doPlaceOrder = (method: 'online' | 'cod' | 'upi') => {
       const order = placeOrder({
         items: cart,
         subtotal,
@@ -85,14 +122,27 @@ export function CheckoutView() {
         shipping,
         total,
         couponCode: appliedCoupon || undefined,
-        paymentMethod,
+        paymentMethod: method,
         address: addr,
         customerName: addr.name,
         customerPhone: addr.phone,
         customerEmail: user?.email,
       });
-      toast.success('Order placed successfully!');
+
+      // Auto-send WhatsApp notification with full order details
+      setTimeout(() => {
+        sendWhatsAppNotification(order);
+      }, 500);
+
+      toast.success('Order placed! Opening WhatsApp to confirm...');
       navigate('order-success', null, null);
+    };
+
+    if (paymentMethod === 'online') {
+      toast.success('Redirecting to Razorpay...', { duration: 1500 });
+      setTimeout(() => doPlaceOrder('online'), 1200);
+    } else {
+      doPlaceOrder(paymentMethod);
     }
   };
 
@@ -204,7 +254,24 @@ export function CheckoutView() {
                 <CreditCard className="w-4 h-4" /> Payment Method
               </h2>
 
-              <RadioGroup value={paymentMethod} onValueChange={(v) => setPaymentMethod(v as 'online' | 'cod')} className="space-y-2">
+              <RadioGroup value={paymentMethod} onValueChange={(v) => { setPaymentMethod(v as 'online' | 'cod' | 'upi'); setUpiPaid(false); }} className="space-y-2">
+                {/* UPI / GPay — Default & Recommended */}
+                <div className={`p-4 rounded-xl border-2 transition-colors cursor-pointer ${
+                  paymentMethod === 'upi' ? 'border-italia-blue bg-italia-blue/5' : 'border-slate-200 hover:border-italia-blue/40'
+                }`}>
+                  <div className="flex items-center gap-3">
+                    <RadioGroupItem value="upi" id="upi" />
+                    <Smartphone className="w-5 h-5 text-italia-blue" />
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm font-semibold text-italia-navy">UPI / GPay</p>
+                        <Badge className="bg-italia-gold text-white text-[9px] hover:bg-italia-gold">RECOMMENDED</Badge>
+                      </div>
+                      <p className="text-xs text-slate-500">Pay via GPay, PhonePe, Paytm or any UPI app</p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Online */}
                 <div className={`p-4 rounded-xl border-2 transition-colors cursor-pointer ${
                   paymentMethod === 'online' ? 'border-italia-blue bg-italia-blue/5' : 'border-slate-200 hover:border-italia-blue/40'
@@ -214,10 +281,9 @@ export function CheckoutView() {
                     <CreditCard className="w-5 h-5 text-italia-blue" />
                     <div className="flex-1">
                       <p className="text-sm font-semibold text-italia-navy">Online Payment (Razorpay)</p>
-                      <p className="text-xs text-slate-500">UPI, Credit/Debit Cards, Net Banking, Wallets</p>
+                      <p className="text-xs text-slate-500">Credit/Debit Cards, Net Banking, Wallets</p>
                     </div>
                     <div className="flex gap-1">
-                      <Badge variant="secondary" className="text-[9px]">UPI</Badge>
                       <Badge variant="secondary" className="text-[9px]">VISA</Badge>
                       <Badge variant="secondary" className="text-[9px]">MC</Badge>
                     </div>
@@ -240,11 +306,73 @@ export function CheckoutView() {
                 </div>
               </RadioGroup>
 
+              {/* UPI Payment Details */}
+              {paymentMethod === 'upi' && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-3 space-y-3">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-italia-blue/5 to-italia-gold/5 border border-italia-blue/20">
+                    <p className="text-xs font-semibold text-italia-navy mb-2 flex items-center gap-1.5">
+                      <Smartphone className="w-3.5 h-3.5" /> Pay ₹{total.toLocaleString('en-IN')} via UPI
+                    </p>
+                    <div className="flex items-center justify-between p-3 rounded-lg bg-white border border-slate-200">
+                      <div>
+                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">UPI ID</p>
+                        <p className="font-mono font-bold text-italia-navy text-sm">{UPI_ID}</p>
+                      </div>
+                      <Button size="sm" variant="outline" onClick={copyUpiId} className="rounded-full">
+                        <Copy className="w-3 h-3 mr-1" /> Copy
+                      </Button>
+                    </div>
+                    <p className="text-[10px] text-slate-600 mt-2 leading-relaxed">
+                      1. Open GPay / PhonePe / Paytm or any UPI app<br/>
+                      2. Send ₹{total.toLocaleString('en-IN')} to: <strong>{UPI_ID}</strong><br/>
+                      3. After payment, click "I've Paid" button below
+                    </p>
+                  </div>
+
+                  {/* UPI App links */}
+                  <div className="flex gap-2">
+                    <a
+                      href={`upi://pay?pa=${UPI_ID}&pn=Village%20Eyecare&am=${total}&cu=INR&tn=Order%20Payment`}
+                      className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-semibold hover:opacity-90 transition-opacity"
+                    >
+                      <Smartphone className="w-3.5 h-3.5" /> Open UPI App
+                    </a>
+                  </div>
+
+                  {/* Payment confirmation */}
+                  <button
+                    onClick={() => { setUpiPaid(true); toast.success('Payment confirmed! You can now place your order.'); }}
+                    className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${
+                      upiPaid
+                        ? 'bg-green-100 text-green-700 border-2 border-green-300'
+                        : 'bg-italia-navy text-white hover:bg-italia-blue'
+                    }`}
+                  >
+                    {upiPaid ? (
+                      <span className="flex items-center justify-center gap-1.5">
+                        <Check className="w-4 h-4" /> Payment Confirmed
+                      </span>
+                    ) : (
+                      "I've Paid ₹" + total.toLocaleString('en-IN')
+                    )}
+                  </button>
+                </motion.div>
+              )}
+
               {paymentMethod === 'online' && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-3 p-3 rounded-xl bg-italia-blue/5 border border-italia-blue/20 flex items-start gap-2">
                   <Lock className="w-4 h-4 text-italia-blue mt-0.5 flex-shrink-0" />
                   <p className="text-xs text-slate-700">
                     You will be redirected to a secure Razorpay payment page. Your card details are never stored on our servers. 256-bit SSL encryption.
+                  </p>
+                </motion.div>
+              )}
+
+              {paymentMethod === 'cod' && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-3 p-3 rounded-xl bg-green-50 border border-green-200 flex items-start gap-2">
+                  <Banknote className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <p className="text-xs text-slate-700">
+                    Pay ₹{total.toLocaleString('en-IN')} in cash when your order is delivered. Please keep exact change ready.
                   </p>
                 </motion.div>
               )}
@@ -328,16 +456,22 @@ export function CheckoutView() {
                 <Button
                   size="lg"
                   onClick={handlePlaceOrder}
-                  className="w-full mt-4 bg-italia-navy hover:bg-italia-blue text-white rounded-full h-12"
+                  disabled={paymentMethod === 'upi' && !upiPaid}
+                  className="w-full mt-4 bg-italia-navy hover:bg-italia-blue text-white rounded-full h-12 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {paymentMethod === 'online' ? (
-                    <><Lock className="w-4 h-4 mr-1.5" /> Pay ₹{total.toLocaleString('en-IN')}</>
+                    <><Lock className="w-4 h-4 mr-1.5" /> Pay ₹{total.toLocaleString('en-IN')} via Razorpay</>
+                  ) : paymentMethod === 'upi' ? (
+                    <><Check className="w-4 h-4 mr-1.5" /> {upiPaid ? `Place Order — WhatsApp Confirm` : 'Complete UPI Payment First'}</>
                   ) : (
-                    <><Check className="w-4 h-4 mr-1.5" /> Place Order (COD)</>
+                    <><Check className="w-4 h-4 mr-1.5" /> Place Order (COD) — WhatsApp Confirm</>
                   )}
                 </Button>
 
-                <p className="text-[10px] text-slate-400 text-center mt-3 flex items-center justify-center gap-1">
+                <p className="text-[10px] text-italia-blue text-center mt-3 flex items-center justify-center gap-1">
+                  <MessageCircle className="w-3 h-3" /> Order details will be auto-sent to our WhatsApp
+                </p>
+                <p className="text-[10px] text-slate-400 text-center mt-1 flex items-center justify-center gap-1">
                   <Shield className="w-3 h-3" /> 100% Secure Checkout
                 </p>
               </Card>
@@ -397,7 +531,7 @@ export function OrderSuccessView() {
             ))}
             <Separator className="my-2" />
             <div className="flex justify-between font-bold text-italia-navy">
-              <span>Total Paid ({latestOrder.paymentMethod === 'cod' ? 'COD' : 'Online'})</span>
+              <span>Total Paid ({latestOrder.paymentMethod === 'cod' ? 'COD' : latestOrder.paymentMethod === 'upi' ? 'UPI/GPay' : 'Online'})</span>
               <span>₹{latestOrder.total.toLocaleString('en-IN')}</span>
             </div>
           </div>
