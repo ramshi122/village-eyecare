@@ -9,6 +9,8 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
+import { Textarea } from '@/components/ui/textarea';
 import {
   LayoutDashboard, Package, ShoppingBag, Users, BarChart3, Tag,
   Plus, Search, Edit, Trash2, TrendingUp, IndianRupee, Clock, Check,
@@ -34,6 +36,7 @@ export function AdminView() {
   const [search, setSearch] = useState('');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [showProductForm, setShowProductForm] = useState(false);
+  const [productToDelete, setProductToDelete] = useState<Product | null>(null);
 
   const stats = {
     totalRevenue: adminOrders.filter((o) => o.paymentStatus === 'paid').reduce((s, o) => s + o.total, 0) + 245680,
@@ -309,20 +312,20 @@ export function AdminView() {
                         <TableCell>
                           <div className="flex gap-1">
                             <Button
-                              size="icon"
+                              size="sm"
                               variant="ghost"
-                              className="w-8 h-8 text-italia-blue hover:bg-italia-blue/10"
+                              className="h-8 px-2 text-italia-blue hover:bg-italia-blue/10"
                               onClick={() => { setEditingProduct(p); setShowProductForm(true); }}
                             >
-                              <Edit className="w-3.5 h-3.5" />
+                              <Edit className="w-3.5 h-3.5 mr-1" /> Edit
                             </Button>
                             <Button
-                              size="icon"
+                              size="sm"
                               variant="ghost"
-                              className="w-8 h-8 text-red-500 hover:bg-red-50"
-                              onClick={() => { if (confirm(`Delete ${p.name}?`)) { deleteProduct(p.id); toast.success('Product deleted'); } }}
+                              className="h-8 px-2 text-red-500 hover:bg-red-50"
+                              onClick={() => setProductToDelete(p)}
                             >
-                              <Trash2 className="w-3.5 h-3.5" />
+                              <Trash2 className="w-3.5 h-3.5 mr-1" /> Delete
                             </Button>
                           </div>
                         </TableCell>
@@ -335,11 +338,39 @@ export function AdminView() {
 
             {showProductForm && (
               <ProductForm
+                key={editingProduct?.id || 'new-product'}
                 product={editingProduct}
                 onSave={handleSaveProduct}
                 onCancel={() => { setShowProductForm(false); setEditingProduct(null); }}
               />
             )}
+
+            {/* Delete confirmation dialog */}
+            <AlertDialog open={!!productToDelete} onOpenChange={(open) => { if (!open) setProductToDelete(null); }}>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Delete Product?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Are you sure you want to delete <strong>{productToDelete?.name}</strong>? This action cannot be undone.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    className="bg-red-600 hover:bg-red-700 text-white"
+                    onClick={() => {
+                      if (productToDelete) {
+                        deleteProduct(productToDelete.id);
+                        toast.success('Product deleted');
+                        setProductToDelete(null);
+                      }
+                    }}
+                  >
+                    Yes, Delete
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </TabsContent>
 
           {/* ORDERS */}
@@ -615,6 +646,41 @@ function ProductForm({ product, onSave, onCancel }: { product: Product | null; o
             </select>
           </div>
         </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div>
+            <Label className="text-xs">Frame Color</Label>
+            <Input value={form.frameColor} onChange={(e) => setForm({ ...form, frameColor: e.target.value })} className="mt-1" placeholder="e.g., Tortoise, Black, Gold" />
+          </div>
+          <div>
+            <Label className="text-xs">Material</Label>
+            <Input value={form.material} onChange={(e) => setForm({ ...form, material: e.target.value })} className="mt-1" placeholder="e.g., Acetate, Titanium, Metal" />
+          </div>
+        </div>
+
+        {/* Image URLs */}
+        <div>
+          <Label className="text-xs">Product Image URLs (one per line)</Label>
+          <Textarea
+            value={form.images.join('\n')}
+            onChange={(e) => setForm({ ...form, images: e.target.value.split('\n').filter((url) => url.trim()) })}
+            className="mt-1 min-h-[80px] font-mono text-xs"
+            placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"
+          />
+          <p className="text-[10px] text-slate-500 mt-1">Enter each image URL on a new line. First image will be the main product image.</p>
+        </div>
+
+        {/* Image preview */}
+        {form.images.length > 0 && (
+          <div className="flex gap-2 flex-wrap">
+            {form.images.slice(0, 4).map((img, i) => (
+              <div key={i} className="relative w-16 h-16 rounded-lg overflow-hidden border border-slate-200">
+                <img src={img} alt={`Preview ${i + 1}`} className="w-full h-full object-cover" />
+                {i === 0 && <span className="absolute bottom-0 inset-x-0 bg-italia-blue text-white text-[8px] text-center py-0.5">MAIN</span>}
+              </div>
+            ))}
+          </div>
+        )}
+
         <div className="flex flex-wrap gap-3">
           {[
             { key: 'isFeatured', label: 'Featured' },
