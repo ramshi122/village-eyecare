@@ -1,0 +1,30 @@
+{
+  "name": "Italia Optical - Premium Eyewear Store",
+  "short_name": "Italia Optical",
+  "description": "Premium eyewear store - eyeglasses, sunglasses, contact lenses & more. See Better Than Yesterday.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "lifestyle", "health"],
+  "icons": [
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Shop Eyeglasses", "url": "/?category=eyeglasses" },
+    { "name": "Shop Sunglasses", "url": "/?category=sunglasses" },
+    { "name": "Track Order", "url": "/?view=orders" }
+  ]
+}

@@ -1,0 +1,157 @@
+// Italia Optical - Prisma Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  password  String
+  role      String   @default("customer") // customer | admin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders       Order[]
+  prescriptions Prescription[]
+  reviews      Review[]
+  addresses    Address[]
+}
+
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  phone     String
+  line1     String
+  line2     String?
+  city      String
+  state     String
+  pincode   String
+  isDefault Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  icon        String?
+  description String?
+  createdAt   DateTime @default(now())
+  products    Product[]
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  brand       String
+  description String
+  price       Float
+  mrp         Float
+  discount    Int      @default(0)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  frameShape  String   // round, square, rectangle, aviator, cat-eye, oval
+  frameColor  String
+  gender      String   // men, women, unisex, kids
+  material    String
+  weight      String
+  size        String
+  images      String   // comma-separated URLs
+  rating      Float    @default(4.5)
+  reviewCount Int      @default(0)
+  stock       Int      @default(50)
+  isFeatured  Boolean  @default(false)
+  isNew       Boolean  @default(false)
+  isBestSeller Boolean @default(false)
+  isOffer     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  reviews     Review[]
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id          String   @id @default(cuid())
+  orderNumber String   @unique
+  userId      String?
+  customerName String
+  customerPhone String
+  customerEmail String?
+  address     String
+  items       OrderItem[]
+  subtotal    Float
+  discount    Float    @default(0)
+  shipping    Float    @default(0)
+  total       Float
+  couponCode  String?
+  paymentMethod String // online | cod
+  paymentStatus String @default("pending") // pending | paid | failed
+  orderStatus String   @default("placed") // placed | confirmed | shipped | delivered | cancelled
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User?    @relation(fields: [userId], references: [id])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  name      String
+  image     String
+  price     Float
+  quantity  Int
+  lensType  String?
+}
+
+model Prescription {
+  id        String   @id @default(cuid())
+  userId    String?
+  imageUrl  String?
+  rightSPH  String?
+  rightCYL  String?
+  rightAXIS String?
+  leftSPH   String?
+  leftCYL   String?
+  leftAXIS  String?
+  pd        String?
+  notes     String?
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  userId    String?
+  userName  String
+  rating    Int
+  title     String
+  comment   String
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model Offer {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  title     String
+  description String
+  discountType String // percentage | flat
+  discountValue Float
+  minOrder  Float
+  maxDiscount Float?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
