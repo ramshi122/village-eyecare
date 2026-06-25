@@ -97,17 +97,20 @@ export function Header() {
             {/* Logo */}
             <button
               onClick={handleLogoClick}
-              className="flex items-center gap-2.5 group flex-shrink-0 select-none"
+              className="flex items-center gap-3 group flex-shrink-0 select-none"
               title="Village Eyecare"
             >
-              <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-xl gradient-italia flex items-center justify-center shadow-italia group-hover:scale-105 transition-transform">
-                <Glasses className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              <div className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-xl gradient-italia flex items-center justify-center shadow-italia group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Glasses className="w-6 h-6 lg:w-7 lg:h-7 text-white group-hover:scale-110 transition-transform" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-italia-gold animate-pulse" />
               </div>
               <div className="hidden sm:block text-left">
-                <h1 className="font-serif-italia text-sm lg:text-base font-bold text-italia-navy leading-none tracking-tight">
-                  Village Eyecare
+                <h1 className="font-serif-italia text-xl lg:text-2xl font-bold leading-none tracking-tight animate-fade-in">
+                  <span className="bg-gradient-to-r from-italia-navy via-italia-blue to-italia-navy bg-clip-text text-transparent group-hover:from-italia-blue group-hover:to-italia-gold transition-all duration-500">
+                    Village Eyecare
+                  </span>
                 </h1>
-                <p className="text-[8px] lg:text-[9px] uppercase tracking-[0.15em] text-slate-500 mt-0.5">
+                <p className="text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-1 font-medium">
                   See Better Than Yesterday
                 </p>
               </div>
