@@ -91,7 +91,7 @@ export const useStore = create<AppState>()(
       addresses: [
         {
           id: 'addr-default',
-          name: 'Italia Optical Store',
+          name: 'Village Eyecare Store',
           phone: '+91 87082-70548',
           line1: 'Store No. 18/258, Basement Floor',
           line2: 'Kunjpura Road, Opp. Mahavirdal Hospital',
@@ -182,7 +182,7 @@ export const useStore = create<AppState>()(
             id: `u-${Date.now()}`,
             email,
             name,
-            role: email.toLowerCase() === 'admin@italiaoptical.com' ? 'admin' : 'customer',
+            role: email.toLowerCase() === 'admin@villageeyecare.com' ? 'admin' : 'customer',
           },
         }),
 
@@ -236,7 +236,7 @@ export const useStore = create<AppState>()(
       setMenuOpen: (open) => set({ isMenuOpen: open }),
     }),
     {
-      name: 'italia-optical-store',
+      name: 'village-eyecare-store',
       partialize: (state) => ({
         cart: state.cart,
         wishlist: state.wishlist,

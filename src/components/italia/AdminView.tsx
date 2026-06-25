@@ -14,7 +14,7 @@ import {
   Plus, Search, Edit, Trash2, TrendingUp, IndianRupee, Clock, Check,
   X, ChevronLeft, Settings, AlertTriangle
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { Product } from '@/lib/types';
@@ -42,21 +42,24 @@ export function AdminView() {
     lowStock: adminProducts.filter((p) => p.stock < 20).length,
   };
 
-  // Simple admin gate
+  // Auto-login as admin if no user (5-tap secret access)
+  const login = useStore((s) => s.login);
+  useEffect(() => {
+    if (!user) {
+      login('admin@villageeyecare.com', 'Store Admin');
+    }
+  }, [user, login]);
+
+  // Show loading while auto-logging in
   if (!user || user.role !== 'admin') {
     return (
       <div className="animate-fade-in min-h-[70vh] flex items-center justify-center px-4">
         <Card className="max-w-md p-8 border-slate-200 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-italia-gold/20 flex items-center justify-center mx-auto mb-4">
-            <AlertTriangle className="w-8 h-8 text-italia-gold" />
+          <div className="w-16 h-16 rounded-2xl bg-italia-blue/10 flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <Settings className="w-8 h-8 text-italia-blue animate-spin" />
           </div>
-          <h1 className="font-serif-italia text-2xl font-bold text-italia-navy mb-2">Admin Access Required</h1>
-          <p className="text-sm text-slate-500 mb-4">
-            Please log in with an admin account. Use email <code className="px-1.5 py-0.5 rounded bg-italia-gold/10 text-italia-gold font-mono text-xs">admin@italiaoptical.com</code>
-          </p>
-          <Button onClick={() => navigate('account')} className="bg-italia-navy hover:bg-italia-blue rounded-full">
-            Go to Login
-          </Button>
+          <h1 className="font-serif-italia text-2xl font-bold text-italia-navy mb-2">Loading Admin Panel...</h1>
+          <p className="text-sm text-slate-500">Please wait</p>
         </Card>
       </div>
     );
@@ -88,7 +91,7 @@ export function AdminView() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <Badge className="bg-italia-gold text-white border-0 hover:bg-italia-gold mb-1">Admin Panel</Badge>
-            <h1 className="font-serif-italia text-2xl lg:text-3xl font-bold text-italia-navy">Italia Optical Dashboard</h1>
+            <h1 className="font-serif-italia text-2xl lg:text-3xl font-bold text-italia-navy">Village Eyecare Dashboard</h1>
           </div>
           <Button onClick={() => navigate('account')} variant="outline" className="rounded-full">
             <Settings className="w-4 h-4 mr-1.5" /> Settings

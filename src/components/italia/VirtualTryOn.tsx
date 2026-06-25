@@ -95,7 +95,7 @@ export function VirtualTryOn() {
   const downloadPhoto = () => {
     if (!photo) return;
     const link = document.createElement('a');
-    link.download = 'italia-optical-tryon.jpg';
+    link.download = 'village-eyecare-tryon.jpg';
 
     // Create composite with frame
     const img = new Image();

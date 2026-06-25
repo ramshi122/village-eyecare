@@ -4,6 +4,7 @@ import { useStore } from '@/lib/store';
 import { STORE_INFO, CATEGORIES, getFeaturedProducts, getNewArrivals, getBestSellers, getOfferProducts, OFFERS } from '@/lib/data';
 import { ProductCard } from './ProductCard';
 import { FrameShapeFinder } from './FrameShapeFinder';
+import { VideoAdBanner } from './VideoAdBanner';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -237,6 +238,9 @@ export function HomeView() {
         </div>
       </section>
 
+      {/* ===== VIDEO AD BANNER ===== */}
+      <VideoAdBanner />
+
       {/* ===== CATEGORIES ===== */}
       <section className="max-w-7xl mx-auto px-4 py-10 lg:py-14">
         <div className="flex items-end justify-between mb-6">
@@ -419,7 +423,7 @@ export function HomeView() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { name: 'Ananya Verma', role: 'Karnal', rating: 5, text: 'Got my first pair of progressive lenses from Italia Optical. The staff was super helpful and the frame quality is amazing. Highly recommend!' },
+              { name: 'Ananya Verma', role: 'Karnal', rating: 5, text: 'Got my first pair of progressive lenses from Village Eyecare. The staff was super helpful and the frame quality is amazing. Highly recommend!' },
               { name: 'Rajesh Khurana', role: 'Panipat', rating: 5, text: 'Best optical store in the region. Wide variety, fair pricing, and quick service. The virtual try-on made choosing frames so easy.' },
               { name: 'Meera Kapoor', role: 'Karnal', rating: 5, text: 'Purchased sunglasses for my whole family. The discounts were incredible and delivery was fast. My go-to optical store now.' },
             ].map((t, i) => (
@@ -493,7 +497,7 @@ export function HomeView() {
             </div>
             <div className="relative min-h-[280px] bg-italia-mist">
               <iframe
-                title="Italia Optical Location"
+                title="Village Eyecare Location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=76.96%2C29.66%2C77.02%2C29.70&layer=mapnik&marker=29.6854%2C76.9905"
                 className="absolute inset-0 w-full h-full"
                 loading="lazy"

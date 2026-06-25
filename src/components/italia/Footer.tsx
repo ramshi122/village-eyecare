@@ -45,7 +45,7 @@ export function Footer() {
                 <Glasses className="w-5 h-5 text-italia-gold" />
               </div>
               <div>
-                <h2 className="font-serif-italia text-lg font-bold leading-none">Italia Optical</h2>
+                <h2 className="font-serif-italia text-lg font-bold leading-none">Village Eyecare</h2>
                 <p className="text-[10px] uppercase tracking-wider text-italia-gold mt-1">See Better Than Yesterday</p>
               </div>
             </div>
@@ -140,7 +140,7 @@ export function Footer() {
       {/* Bottom */}
       <div className="border-t border-white/10 py-4">
         <div className="max-w-7xl mx-auto px-4 text-center text-xs text-white/60">
-          © {new Date().getFullYear()} Italia Optical · All rights reserved · Made with care in Karnal, Haryana
+          © {new Date().getFullYear()} Village Eyecare · All rights reserved · Made with care in Karnal, Haryana
         </div>
       </div>
     </footer>

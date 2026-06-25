@@ -34,7 +34,7 @@ export function WhatsAppWidget() {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-sm">Italia Optical Support</p>
+                  <p className="font-semibold text-sm">Village Eyecare Support</p>
                   <p className="text-xs text-white/80 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Online now
                   </p>
@@ -47,7 +47,7 @@ export function WhatsAppWidget() {
               <div className="p-4 bg-slate-50">
                 <div className="bg-white rounded-2xl rounded-tl-sm p-3 shadow-sm mb-3 max-w-[85%]">
                   <p className="text-sm text-slate-700">
-                    Hi there! Welcome to Italia Optical. How can we help you today? Choose an option or type your message.
+                    Hi there! Welcome to Village Eyecare. How can we help you today? Choose an option or type your message.
                   </p>
                   <span className="text-[10px] text-slate-400 mt-1 block">Just now</span>
                 </div>

@@ -16,16 +16,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Italia Optical — Premium Eyewear Store | See Better Than Yesterday",
-  description: "Shop premium eyeglasses, sunglasses, contact lenses, computer glasses & more at Italia Optical, Karnal. Virtual try-on, prescription upload, free delivery & COD available.",
-  keywords: ["Italia Optical", "eyeglasses Karnal", "sunglasses Haryana", "contact lenses", "prescription glasses", "optical store", "virtual try-on"],
-  authors: [{ name: "Italia Optical" }],
+  title: "Village Eyecare — Premium Eyewear Store | See Better Than Yesterday",
+  description: "Shop premium eyeglasses, sunglasses, contact lenses, computer glasses & more at Village Eyecare, Karnal. Virtual try-on, prescription upload, free delivery & COD available.",
+  keywords: ["Village Eyecare", "eyeglasses Karnal", "sunglasses Haryana", "contact lenses", "prescription glasses", "optical store", "virtual try-on"],
+  authors: [{ name: "Village Eyecare" }],
   manifest: "/manifest.json",
-  applicationName: "Italia Optical",
+  applicationName: "Village Eyecare",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Italia Optical",
+    title: "Village Eyecare",
   },
   icons: {
     icon: [
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     apple: [{ url: "/icon-192.svg", type: "image/svg+xml" }],
   },
   openGraph: {
-    title: "Italia Optical — Premium Eyewear Store",
+    title: "Village Eyecare — Premium Eyewear Store",
     description: "See Better Than Yesterday. Premium eyeglasses, sunglasses & contact lenses in Karnal.",
-    siteName: "Italia Optical",
+    siteName: "Village Eyecare",
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Italia Optical — Premium Eyewear Store",
+    title: "Village Eyecare — Premium Eyewear Store",
     description: "See Better Than Yesterday. Premium eyeglasses, sunglasses & contact lenses in Karnal.",
   },
 };

@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Search, ShoppingCart, Heart, User, Menu, Glasses, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { toast } from 'sonner';
 
 export function Header() {
   const navigate = useStore((s) => s.navigate);
@@ -17,6 +18,36 @@ export function Header() {
   const user = useStore((s) => s.user);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // 5-tap logo → admin panel (secret access)
+  const tapCountRef = useRef(0);
+  const tapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleLogoClick = () => {
+    tapCountRef.current += 1;
+
+    if (tapTimerRef.current) clearTimeout(tapTimerRef.current);
+    tapTimerRef.current = setTimeout(() => {
+      tapCountRef.current = 0;
+    }, 1500);
+
+    if (tapCountRef.current >= 5) {
+      tapCountRef.current = 0;
+      if (tapTimerRef.current) clearTimeout(tapTimerRef.current);
+      toast.success('Admin access unlocked!', { duration: 1500 });
+      navigate('admin');
+      return;
+    }
+
+    if (tapCountRef.current === 3) {
+      toast.info(`${5 - tapCountRef.current} more taps for admin panel`, { duration: 1000 });
+    }
+
+    // Navigate home only on first tap
+    if (tapCountRef.current === 1) {
+      navigate('home');
+    }
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,15 +89,16 @@ export function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20 gap-4">
             {/* Logo */}
             <button
-              onClick={() => navigate('home')}
-              className="flex items-center gap-2.5 group flex-shrink-0"
+              onClick={handleLogoClick}
+              className="flex items-center gap-2.5 group flex-shrink-0 select-none"
+              title="Village Eyecare"
             >
               <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl gradient-italia flex items-center justify-center shadow-italia group-hover:scale-105 transition-transform">
                 <Glasses className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
               <div className="hidden sm:block text-left">
                 <h1 className="font-serif-italia text-lg lg:text-xl font-bold text-italia-navy leading-none tracking-tight">
-                  Italia Optical
+                  Village Eyecare
                 </h1>
                 <p className="text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-0.5">
                   See Better Than Yesterday
@@ -158,7 +190,7 @@ export function Header() {
                       <div className="w-8 h-8 rounded-lg gradient-italia flex items-center justify-center">
                         <Glasses className="w-4 h-4 text-white" />
                       </div>
-                      Italia Optical
+                      Village Eyecare
                     </SheetTitle>
                   </SheetHeader>
                   <div className="p-4 overflow-y-auto h-[calc(100vh-80px)]">

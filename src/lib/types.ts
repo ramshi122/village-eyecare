@@ -1,4 +1,4 @@
-// Italia Optical - TypeScript Types
+// Village Eyecare - TypeScript Types
 
 export type ViewName =
   | 'home'

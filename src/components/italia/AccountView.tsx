@@ -54,7 +54,7 @@ export function AccountView() {
               {mode === 'login' ? 'Welcome Back' : 'Create Account'}
             </h1>
             <p className="text-sm text-slate-500 mt-1">
-              {mode === 'login' ? 'Sign in to your Italia Optical account' : 'Join Italia Optical family today'}
+              {mode === 'login' ? 'Sign in to your Village Eyecare account' : 'Join Village Eyecare family today'}
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export function AccountView() {
 
           <div className="mt-5 p-3 rounded-xl bg-italia-gold/10 text-center">
             <p className="text-xs text-slate-600">
-              💡 Tip: Use email <code className="font-mono text-italia-gold">admin@italiaoptical.com</code> to access admin panel
+              💡 Tip: Use email <code className="font-mono text-italia-gold">admin@villageeyecare.com</code> to access admin panel
             </p>
           </div>
         </Card>

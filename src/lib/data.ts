@@ -16,7 +16,7 @@ const img = (seed: string, color = '1e3a8a') =>
   `https://picsum.photos/seed/${seed}/600/600`;
 
 const sampleReviews: Review[] = [
-  { id: 'r1', productId: '', userName: 'Aarav Sharma', rating: 5, title: 'Excellent quality!', comment: 'The frame is lightweight and looks premium. Fast delivery by Italia Optical.', date: '2025-05-12' },
+  { id: 'r1', productId: '', userName: 'Aarav Sharma', rating: 5, title: 'Excellent quality!', comment: 'The frame is lightweight and looks premium. Fast delivery by Village Eyecare.', date: '2025-05-12' },
   { id: 'r2', productId: '', userName: 'Priya Mehta', rating: 4, title: 'Good value for money', comment: 'Stylish design and the lenses are perfectly adjusted. Slightly tight on temples.', date: '2025-04-28' },
   { id: 'r3', productId: '', userName: 'Rohit Gupta', rating: 5, title: 'Highly recommend', comment: 'Got many compliments. The try-on feature helped me choose the perfect frame.', date: '2025-04-15' },
   { id: 'r4', productId: '', userName: 'Sneha Reddy', rating: 4, title: 'Satisfied', comment: 'Good product but delivery took 4 days. Frame quality is top notch.', date: '2025-03-30' },
@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6, reviewCount: 21, stock: 8, isFeatured: true, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
     { id: `p1-r0`, productId: `p1`, userName: `Rajesh Khurana`, rating: 3, title: `Better than expected`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-04-08` },
-    { id: `p1-r1`, productId: `p1`, userName: `Nitin Joshi`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-23` },
+    { id: `p1-r1`, productId: `p1`, userName: `Nitin Joshi`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-23` },
     { id: `p1-r2`, productId: `p1`, userName: `Ritu Aggarwal`, rating: 5, title: `Perfect fit`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-02-25` },
     { id: `p1-r3`, productId: `p1`, userName: `Karan Malhotra`, rating: 4, title: `Good value for money`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-01-12` }
     ],
@@ -336,8 +336,8 @@ export const PRODUCTS: Product[] = [
     weight: `14g`, size: `Extra Large`, images: [`https://sfile.chatglm.cn/images-ppt/f6bfe594a4be.jpg`, `https://sfile.chatglm.cn/images-ppt/93bbfbeb6fed.jpg`, `https://sfile.chatglm.cn/images-ppt/3789ed1e856c.jpg`, `https://sfile.chatglm.cn/images-ppt/3a6aa890ebc5.jpg`],
     rating: 4.6, reviewCount: 152, stock: 61, isFeatured: true, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p25-r0`, productId: `p25`, userName: `Nitin Joshi`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-24` },
-    { id: `p25-r1`, productId: `p25`, userName: `Karan Malhotra`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-08` },
+    { id: `p25-r0`, productId: `p25`, userName: `Nitin Joshi`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-24` },
+    { id: `p25-r1`, productId: `p25`, userName: `Karan Malhotra`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-08` },
     { id: `p25-r2`, productId: `p25`, userName: `Manish Tiwari`, rating: 5, title: `Excellent quality!`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-05-02` }
     ],
   },
@@ -350,9 +350,9 @@ export const PRODUCTS: Product[] = [
     rating: 4.4, reviewCount: 169, stock: 90, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p26-r0`, productId: `p26`, userName: `Priya Mehta`, rating: 5, title: `Good value for money`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-03-11` },
-    { id: `p26-r1`, productId: `p26`, userName: `Sneha Reddy`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-15` },
+    { id: `p26-r1`, productId: `p26`, userName: `Sneha Reddy`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-15` },
     { id: `p26-r2`, productId: `p26`, userName: `Ritu Aggarwal`, rating: 4, title: `Satisfied`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-03-20` },
-    { id: `p26-r3`, productId: `p26`, userName: `Sonia Mehta`, rating: 3, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-09` }
+    { id: `p26-r3`, productId: `p26`, userName: `Sonia Mehta`, rating: 3, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-09` }
     ],
   },
   {
@@ -520,7 +520,7 @@ export const PRODUCTS: Product[] = [
     weight: `30g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/381b3f50966f.jpg`, `https://sfile.chatglm.cn/images-ppt/583697394ab6.jpg`, `https://sfile.chatglm.cn/images-ppt/eafb2a93461a.jpg`],
     rating: 4.3, reviewCount: 117, stock: 55, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p39-r0`, productId: `p39`, userName: `Pooja Bhatt`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-24` },
+    { id: `p39-r0`, productId: `p39`, userName: `Pooja Bhatt`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-24` },
     { id: `p39-r1`, productId: `p39`, userName: `Ritu Aggarwal`, rating: 4, title: `Highly recommend`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-05-23` },
     { id: `p39-r2`, productId: `p39`, userName: `Meera Kapoor`, rating: 5, title: `Premium feel`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-01-13` }
     ],
@@ -547,7 +547,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.7, reviewCount: 95, stock: 103, isFeatured: true, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
     { id: `p41-r0`, productId: `p41`, userName: `Karan Malhotra`, rating: 4, title: `Stylish and comfortable`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-04-15` },
-    { id: `p41-r1`, productId: `p41`, userName: `Pooja Bhatt`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-17` },
+    { id: `p41-r1`, productId: `p41`, userName: `Pooja Bhatt`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-17` },
     { id: `p41-r2`, productId: `p41`, userName: `Rohit Gupta`, rating: 5, title: `Stylish and comfortable`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-01-02` }
     ],
   },
@@ -574,7 +574,7 @@ export const PRODUCTS: Product[] = [
     { id: `p43-r0`, productId: `p43`, userName: `Vikram Singh`, rating: 5, title: `Perfect fit`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-02-20` },
     { id: `p43-r1`, productId: `p43`, userName: `Rohit Gupta`, rating: 5, title: `Premium feel`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-03-27` },
     { id: `p43-r2`, productId: `p43`, userName: `Vikram Singh`, rating: 3, title: `Love it!`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-01-21` },
-    { id: `p43-r3`, productId: `p43`, userName: `Ritu Aggarwal`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-10` }
+    { id: `p43-r3`, productId: `p43`, userName: `Ritu Aggarwal`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-10` }
     ],
   },
   {
@@ -610,7 +610,7 @@ export const PRODUCTS: Product[] = [
     weight: `16g`, size: `Medium`, images: [`https://sfile.chatglm.cn/images-ppt/d1e52a3ce2b6.png`, `https://sfile.chatglm.cn/images-ppt/fbeb79443390.jpg`, `https://sfile.chatglm.cn/images-ppt/eafb2a93461a.jpg`],
     rating: 4.1, reviewCount: 337, stock: 47, isFeatured: false, isNew: true, isBestSeller: true, isOffer: true,
     reviews: [
-    { id: `p46-r0`, productId: `p46`, userName: `Sonia Mehta`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-01` },
+    { id: `p46-r0`, productId: `p46`, userName: `Sonia Mehta`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-01` },
     { id: `p46-r1`, productId: `p46`, userName: `Arjun Nair`, rating: 4, title: `Highly recommend`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-05-17` },
     { id: `p46-r2`, productId: `p46`, userName: `Ritu Aggarwal`, rating: 4, title: `Perfect fit`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-03-04` },
     { id: `p46-r3`, productId: `p46`, userName: `Priya Mehta`, rating: 4, title: `Worth every rupee`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-04-03` }
@@ -625,7 +625,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6, reviewCount: 100, stock: 90, isFeatured: false, isNew: true, isBestSeller: true, isOffer: true,
     reviews: [
     { id: `p47-r0`, productId: `p47`, userName: `Neha Pandey`, rating: 4, title: `Worth every rupee`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-01-21` },
-    { id: `p47-r1`, productId: `p47`, userName: `Sahil Khan`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-26` },
+    { id: `p47-r1`, productId: `p47`, userName: `Sahil Khan`, rating: 5, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-26` },
     { id: `p47-r2`, productId: `p47`, userName: `Rohit Gupta`, rating: 5, title: `Satisfied`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-05-24` },
     { id: `p47-r3`, productId: `p47`, userName: `Karan Malhotra`, rating: 4, title: `Excellent quality!`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-05-11` }
     ],
@@ -651,8 +651,8 @@ export const PRODUCTS: Product[] = [
     weight: `14g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/583697394ab6.jpg`, `https://sfile.chatglm.cn/images-ppt/52ad5b05878d.jpg`, `https://sfile.chatglm.cn/images-ppt/dfe451cfa857.jpg`, `https://sfile.chatglm.cn/images-ppt/0691ce31fbfe.jpg`],
     rating: 4.5, reviewCount: 169, stock: 18, isFeatured: false, isNew: true, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p49-r0`, productId: `p49`, userName: `Nitin Joshi`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-20` },
-    { id: `p49-r1`, productId: `p49`, userName: `Ritu Aggarwal`, rating: 5, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-22` }
+    { id: `p49-r0`, productId: `p49`, userName: `Nitin Joshi`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-20` },
+    { id: `p49-r1`, productId: `p49`, userName: `Ritu Aggarwal`, rating: 5, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-22` }
     ],
   },
   {
@@ -664,7 +664,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6, reviewCount: 190, stock: 54, isFeatured: false, isNew: false, isBestSeller: true, isOffer: true,
     reviews: [
     { id: `p50-r0`, productId: `p50`, userName: `Vikram Singh`, rating: 5, title: `Great purchase`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-03-21` },
-    { id: `p50-r1`, productId: `p50`, userName: `Arjun Nair`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-16` },
+    { id: `p50-r1`, productId: `p50`, userName: `Arjun Nair`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-16` },
     { id: `p50-r2`, productId: `p50`, userName: `Akash Verma`, rating: 5, title: `Premium feel`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-03-25` },
     { id: `p50-r3`, productId: `p50`, userName: `Arjun Nair`, rating: 3, title: `Stylish and comfortable`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-05-10` }
     ],
@@ -716,7 +716,7 @@ export const PRODUCTS: Product[] = [
     weight: `28g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/365c3301fc11.jpg`, `https://sfile.chatglm.cn/images-ppt/50c4983b51e0.jpg`, `https://sfile.chatglm.cn/images-ppt/2f5d03cfe44a.jpg`, `https://sfile.chatglm.cn/images-ppt/7283b7171715.jpg`],
     rating: 4.1, reviewCount: 194, stock: 70, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p54-r0`, productId: `p54`, userName: `Meera Kapoor`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-13` },
+    { id: `p54-r0`, productId: `p54`, userName: `Meera Kapoor`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-13` },
     { id: `p54-r1`, productId: `p54`, userName: `Kavya Rao`, rating: 5, title: `Satisfied`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-03-19` },
     { id: `p54-r2`, productId: `p54`, userName: `Karan Malhotra`, rating: 4, title: `Highly recommend`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-05-15` }
     ],
@@ -729,7 +729,7 @@ export const PRODUCTS: Product[] = [
     weight: `26g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/905b21eda3cb.jpg`, `https://sfile.chatglm.cn/images-ppt/c535bf250f9c.jpg`, `https://sfile.chatglm.cn/images-ppt/416ff11f7ad9.jpg`],
     rating: 4.6, reviewCount: 339, stock: 91, isFeatured: true, isNew: false, isBestSeller: true, isOffer: true,
     reviews: [
-    { id: `p55-r0`, productId: `p55`, userName: `Divya Iyer`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-02` },
+    { id: `p55-r0`, productId: `p55`, userName: `Divya Iyer`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-02` },
     { id: `p55-r1`, productId: `p55`, userName: `Manish Tiwari`, rating: 5, title: `Satisfied`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-05-10` },
     { id: `p55-r2`, productId: `p55`, userName: `Rohit Gupta`, rating: 5, title: `Premium feel`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-05-09` }
     ],
@@ -758,7 +758,7 @@ export const PRODUCTS: Product[] = [
     { id: `p57-r0`, productId: `p57`, userName: `Kavya Rao`, rating: 5, title: `Highly recommend`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-01-19` },
     { id: `p57-r1`, productId: `p57`, userName: `Sneha Reddy`, rating: 4, title: `Excellent quality!`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-03-14` },
     { id: `p57-r2`, productId: `p57`, userName: `Vikram Singh`, rating: 5, title: `Love it!`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-04-17` },
-    { id: `p57-r3`, productId: `p57`, userName: `Kavya Rao`, rating: 5, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-17` }
+    { id: `p57-r3`, productId: `p57`, userName: `Kavya Rao`, rating: 5, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-17` }
     ],
   },
   {
@@ -836,7 +836,7 @@ export const PRODUCTS: Product[] = [
     weight: `18g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/0f52ed08ae11.jpg`, `https://sfile.chatglm.cn/images-ppt/c535bf250f9c.jpg`, `https://sfile.chatglm.cn/images-ppt/f7502d5704df.jpg`],
     rating: 4.4, reviewCount: 6, stock: 100, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p63-r0`, productId: `p63`, userName: `Priya Mehta`, rating: 4, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-14` },
+    { id: `p63-r0`, productId: `p63`, userName: `Priya Mehta`, rating: 4, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-14` },
     { id: `p63-r1`, productId: `p63`, userName: `Ananya Verma`, rating: 4, title: `Better than expected`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-03-13` },
     { id: `p63-r2`, productId: `p63`, userName: `Nitin Joshi`, rating: 5, title: `Worth every rupee`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-05-05` },
     { id: `p63-r3`, productId: `p63`, userName: `Divya Iyer`, rating: 4, title: `Highly recommend`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-04-17` }
@@ -916,7 +916,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p69-r0`, productId: `p69`, userName: `Arjun Nair`, rating: 5, title: `Good value for money`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-04-15` },
     { id: `p69-r1`, productId: `p69`, userName: `Manish Tiwari`, rating: 4, title: `Love it!`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-03-22` },
-    { id: `p69-r2`, productId: `p69`, userName: `Rohit Gupta`, rating: 3, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-13` }
+    { id: `p69-r2`, productId: `p69`, userName: `Rohit Gupta`, rating: 3, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-13` }
     ],
   },
   {
@@ -928,7 +928,7 @@ export const PRODUCTS: Product[] = [
     rating: 5.0, reviewCount: 53, stock: 119, isFeatured: true, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p70-r0`, productId: `p70`, userName: `Rohit Gupta`, rating: 3, title: `Perfect fit`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-05-22` },
-    { id: `p70-r1`, productId: `p70`, userName: `Priya Mehta`, rating: 4, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-19` }
+    { id: `p70-r1`, productId: `p70`, userName: `Priya Mehta`, rating: 4, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-19` }
     ],
   },
   {
@@ -954,7 +954,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p72-r0`, productId: `p72`, userName: `Nitin Joshi`, rating: 5, title: `Premium feel`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-04-04` },
     { id: `p72-r1`, productId: `p72`, userName: `Aarav Sharma`, rating: 4, title: `Great purchase`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-01-20` },
-    { id: `p72-r2`, productId: `p72`, userName: `Kavya Rao`, rating: 5, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-14` }
+    { id: `p72-r2`, productId: `p72`, userName: `Kavya Rao`, rating: 5, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-14` }
     ],
   },
   {
@@ -1005,7 +1005,7 @@ export const PRODUCTS: Product[] = [
     weight: `26g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/416ff11f7ad9.jpg`, `https://sfile.chatglm.cn/images-ppt/826fd77d9578.jpg`, `https://sfile.chatglm.cn/images-ppt/8d312a5c3096.jpg`, `https://sfile.chatglm.cn/images-ppt/f7502d5704df.jpg`],
     rating: 4.5, reviewCount: 110, stock: 71, isFeatured: false, isNew: true, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p76-r0`, productId: `p76`, userName: `Priya Mehta`, rating: 3, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-21` },
+    { id: `p76-r0`, productId: `p76`, userName: `Priya Mehta`, rating: 3, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-21` },
     { id: `p76-r1`, productId: `p76`, userName: `Sneha Reddy`, rating: 3, title: `Highly recommend`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-05-06` },
     { id: `p76-r2`, productId: `p76`, userName: `Neha Pandey`, rating: 4, title: `Great purchase`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-04-15` }
     ],
@@ -1084,7 +1084,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p82-r0`, productId: `p82`, userName: `Rohit Gupta`, rating: 3, title: `Great purchase`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-01-12` },
     { id: `p82-r1`, productId: `p82`, userName: `Ananya Verma`, rating: 4, title: `Worth every rupee`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-02-14` },
-    { id: `p82-r2`, productId: `p82`, userName: `Rohit Gupta`, rating: 3, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-16` }
+    { id: `p82-r2`, productId: `p82`, userName: `Rohit Gupta`, rating: 3, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-16` }
     ],
   },
   {
@@ -1136,7 +1136,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p86-r0`, productId: `p86`, userName: `Sneha Reddy`, rating: 4, title: `Great purchase`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-03-17` },
     { id: `p86-r1`, productId: `p86`, userName: `Rohit Gupta`, rating: 5, title: `Love it!`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-01-16` },
-    { id: `p86-r2`, productId: `p86`, userName: `Nitin Joshi`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-28` },
+    { id: `p86-r2`, productId: `p86`, userName: `Nitin Joshi`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-28` },
     { id: `p86-r3`, productId: `p86`, userName: `Manish Tiwari`, rating: 4, title: `Great purchase`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-03-25` }
     ],
   },
@@ -1216,7 +1216,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6, reviewCount: 283, stock: 106, isFeatured: true, isNew: true, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p92-r0`, productId: `p92`, userName: `Akash Verma`, rating: 5, title: `Worth every rupee`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-02-01` },
-    { id: `p92-r1`, productId: `p92`, userName: `Karan Malhotra`, rating: 5, title: `Satisfied`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-02` },
+    { id: `p92-r1`, productId: `p92`, userName: `Karan Malhotra`, rating: 5, title: `Satisfied`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-02` },
     { id: `p92-r2`, productId: `p92`, userName: `Sonia Mehta`, rating: 5, title: `Great purchase`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-02-06` },
     { id: `p92-r3`, productId: `p92`, userName: `Sneha Reddy`, rating: 4, title: `Better than expected`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-03-18` }
     ],
@@ -1229,7 +1229,7 @@ export const PRODUCTS: Product[] = [
     weight: `30g`, size: `Medium`, images: [`https://sfile.chatglm.cn/images-ppt/542fcaafc112.jpg`, `https://sfile.chatglm.cn/images-ppt/e3315bb22e98.webp`, `https://sfile.chatglm.cn/images-ppt/50c4983b51e0.jpg`],
     rating: 4.7, reviewCount: 185, stock: 77, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p93-r0`, productId: `p93`, userName: `Sonia Mehta`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-20` },
+    { id: `p93-r0`, productId: `p93`, userName: `Sonia Mehta`, rating: 4, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-20` },
     { id: `p93-r1`, productId: `p93`, userName: `Meera Kapoor`, rating: 4, title: `Premium feel`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-01-11` }
     ],
   },
@@ -1256,7 +1256,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p95-r0`, productId: `p95`, userName: `Karan Malhotra`, rating: 4, title: `Better than expected`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-03-15` },
     { id: `p95-r1`, productId: `p95`, userName: `Aarav Sharma`, rating: 5, title: `Satisfied`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-01-12` },
-    { id: `p95-r2`, productId: `p95`, userName: `Arjun Nair`, rating: 4, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-13` }
+    { id: `p95-r2`, productId: `p95`, userName: `Arjun Nair`, rating: 4, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-13` }
     ],
   },
   {
@@ -1269,7 +1269,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p96-r0`, productId: `p96`, userName: `Arjun Nair`, rating: 4, title: `Good value for money`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-02-13` },
     { id: `p96-r1`, productId: `p96`, userName: `Ananya Verma`, rating: 3, title: `Good value for money`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-01-11` },
-    { id: `p96-r2`, productId: `p96`, userName: `Kavya Rao`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-21` }
+    { id: `p96-r2`, productId: `p96`, userName: `Kavya Rao`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-21` }
     ],
   },
   {
@@ -1306,7 +1306,7 @@ export const PRODUCTS: Product[] = [
     weight: `N/A`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/dc0f17f5da6e.jpg`, `https://sfile.chatglm.cn/images-ppt/0bdd5687dbec.png`, `https://sfile.chatglm.cn/images-ppt/d2675b712282.jpg`],
     rating: 4.9, reviewCount: 22, stock: 69, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p99-r0`, productId: `p99`, userName: `Rajesh Khurana`, rating: 4, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-03` },
+    { id: `p99-r0`, productId: `p99`, userName: `Rajesh Khurana`, rating: 4, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-03` },
     { id: `p99-r1`, productId: `p99`, userName: `Ritu Aggarwal`, rating: 4, title: `Better than expected`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-05-09` }
     ],
   },
@@ -1372,7 +1372,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.3, reviewCount: 146, stock: 86, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
     { id: `p104-r0`, productId: `p104`, userName: `Akash Verma`, rating: 4, title: `Excellent quality!`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-04-22` },
-    { id: `p104-r1`, productId: `p104`, userName: `Karan Malhotra`, rating: 3, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-10` }
+    { id: `p104-r1`, productId: `p104`, userName: `Karan Malhotra`, rating: 3, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-10` }
     ],
   },
   {
@@ -1398,7 +1398,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.1, reviewCount: 82, stock: 22, isFeatured: false, isNew: false, isBestSeller: true, isOffer: false,
     reviews: [
     { id: `p106-r0`, productId: `p106`, userName: `Karan Malhotra`, rating: 3, title: `Highly recommend`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-04-11` },
-    { id: `p106-r1`, productId: `p106`, userName: `Ananya Verma`, rating: 5, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-15` }
+    { id: `p106-r1`, productId: `p106`, userName: `Ananya Verma`, rating: 5, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-15` }
     ],
   },
   {
@@ -1409,8 +1409,8 @@ export const PRODUCTS: Product[] = [
     weight: `N/A`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/0bdd5687dbec.png`, `https://sfile.chatglm.cn/images-ppt/106e53f1195c.jpg`, `https://sfile.chatglm.cn/images-ppt/45be3174c66d.jpg`, `https://sfile.chatglm.cn/images-ppt/ede87a7da1e4.jpg`],
     rating: 4.4, reviewCount: 224, stock: 56, isFeatured: false, isNew: false, isBestSeller: true, isOffer: false,
     reviews: [
-    { id: `p107-r0`, productId: `p107`, userName: `Rajesh Khurana`, rating: 3, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-25` },
-    { id: `p107-r1`, productId: `p107`, userName: `Akash Verma`, rating: 4, title: `Excellent quality!`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-08` },
+    { id: `p107-r0`, productId: `p107`, userName: `Rajesh Khurana`, rating: 3, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-25` },
+    { id: `p107-r1`, productId: `p107`, userName: `Akash Verma`, rating: 4, title: `Excellent quality!`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-08` },
     { id: `p107-r2`, productId: `p107`, userName: `Divya Iyer`, rating: 5, title: `Highly recommend`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-04-17` },
     { id: `p107-r3`, productId: `p107`, userName: `Manish Tiwari`, rating: 5, title: `Highly recommend`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-01-10` }
     ],
@@ -1450,7 +1450,7 @@ export const PRODUCTS: Product[] = [
     weight: `N/A`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/ce9c39f43c4d.jpg`, `https://sfile.chatglm.cn/images-ppt/0bdd5687dbec.png`, `https://sfile.chatglm.cn/images-ppt/26634e51b50a.jpg`, `https://sfile.chatglm.cn/images-ppt/d2675b712282.jpg`],
     rating: 4.5, reviewCount: 56, stock: 120, isFeatured: false, isNew: false, isBestSeller: true, isOffer: true,
     reviews: [
-    { id: `p110-r0`, productId: `p110`, userName: `Priya Mehta`, rating: 4, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-12` },
+    { id: `p110-r0`, productId: `p110`, userName: `Priya Mehta`, rating: 4, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-12` },
     { id: `p110-r1`, productId: `p110`, userName: `Karan Malhotra`, rating: 5, title: `Love it!`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-01-28` },
     { id: `p110-r2`, productId: `p110`, userName: `Priya Mehta`, rating: 4, title: `Highly recommend`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-03-12` }
     ],
@@ -1466,7 +1466,7 @@ export const PRODUCTS: Product[] = [
     { id: `p111-r0`, productId: `p111`, userName: `Priya Mehta`, rating: 4, title: `Good value for money`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-05-16` },
     { id: `p111-r1`, productId: `p111`, userName: `Manish Tiwari`, rating: 3, title: `Stylish and comfortable`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-05-13` },
     { id: `p111-r2`, productId: `p111`, userName: `Divya Iyer`, rating: 5, title: `Excellent quality!`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-04-16` },
-    { id: `p111-r3`, productId: `p111`, userName: `Sneha Reddy`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-09` }
+    { id: `p111-r3`, productId: `p111`, userName: `Sneha Reddy`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-09` }
     ],
   },
   {
@@ -1491,7 +1491,7 @@ export const PRODUCTS: Product[] = [
     weight: `N/A`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/3fe6f31dcdbf.jpeg`, `https://sfile.chatglm.cn/images-ppt/ede87a7da1e4.jpg`, `https://sfile.chatglm.cn/images-ppt/ce9c39f43c4d.jpg`, `https://sfile.chatglm.cn/images-ppt/ba7b1e609ec7.jpg`],
     rating: 4.0, reviewCount: 51, stock: 106, isFeatured: true, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p113-r0`, productId: `p113`, userName: `Nitin Joshi`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-28` },
+    { id: `p113-r0`, productId: `p113`, userName: `Nitin Joshi`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-28` },
     { id: `p113-r1`, productId: `p113`, userName: `Nitin Joshi`, rating: 5, title: `Premium feel`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-05-16` },
     { id: `p113-r2`, productId: `p113`, userName: `Divya Iyer`, rating: 3, title: `Stylish and comfortable`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-01-25` },
     { id: `p113-r3`, productId: `p113`, userName: `Meera Kapoor`, rating: 4, title: `Great purchase`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-03-18` }
@@ -1507,7 +1507,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p114-r0`, productId: `p114`, userName: `Sneha Reddy`, rating: 5, title: `Excellent quality!`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-01-25` },
     { id: `p114-r1`, productId: `p114`, userName: `Nitin Joshi`, rating: 5, title: `Better than expected`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-05-05` },
-    { id: `p114-r2`, productId: `p114`, userName: `Sonia Mehta`, rating: 4, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-14` }
+    { id: `p114-r2`, productId: `p114`, userName: `Sonia Mehta`, rating: 4, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-14` }
     ],
   },
   {
@@ -1531,7 +1531,7 @@ export const PRODUCTS: Product[] = [
     weight: `24g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/8d312a5c3096.jpg`, `https://sfile.chatglm.cn/images-ppt/2035342f5d4e.jpg`, `https://sfile.chatglm.cn/images-ppt/abbbc6d1707f.jpg`, `https://sfile.chatglm.cn/images-ppt/6e7c59dc3d73.jpg`],
     rating: 4.5, reviewCount: 297, stock: 90, isFeatured: false, isNew: false, isBestSeller: true, isOffer: true,
     reviews: [
-    { id: `p116-r0`, productId: `p116`, userName: `Vikram Singh`, rating: 4, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-09` },
+    { id: `p116-r0`, productId: `p116`, userName: `Vikram Singh`, rating: 4, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-09` },
     { id: `p116-r1`, productId: `p116`, userName: `Ananya Verma`, rating: 5, title: `Better than expected`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-02-27` },
     { id: `p116-r2`, productId: `p116`, userName: `Priya Mehta`, rating: 3, title: `Perfect fit`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-05-02` }
     ],
@@ -1547,7 +1547,7 @@ export const PRODUCTS: Product[] = [
     { id: `p117-r0`, productId: `p117`, userName: `Nitin Joshi`, rating: 4, title: `Better than expected`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-05-18` },
     { id: `p117-r1`, productId: `p117`, userName: `Kavya Rao`, rating: 4, title: `Love it!`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-03-15` },
     { id: `p117-r2`, productId: `p117`, userName: `Ananya Verma`, rating: 3, title: `Good value for money`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-02-24` },
-    { id: `p117-r3`, productId: `p117`, userName: `Akash Verma`, rating: 4, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-09` }
+    { id: `p117-r3`, productId: `p117`, userName: `Akash Verma`, rating: 4, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-09` }
     ],
   },
   {
@@ -1671,7 +1671,7 @@ export const PRODUCTS: Product[] = [
     weight: `30g`, size: `Medium`, images: [`https://sfile.chatglm.cn/images-ppt/678e1dfe54e6.jpg`, `https://sfile.chatglm.cn/images-ppt/ba465e5bfa1c.jpg`, `https://sfile.chatglm.cn/images-ppt/542fcaafc112.jpg`],
     rating: 4.6, reviewCount: 25, stock: 119, isFeatured: true, isNew: false, isBestSeller: true, isOffer: false,
     reviews: [
-    { id: `p127-r0`, productId: `p127`, userName: `Sahil Khan`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-03` },
+    { id: `p127-r0`, productId: `p127`, userName: `Sahil Khan`, rating: 5, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-03` },
     { id: `p127-r1`, productId: `p127`, userName: `Rajesh Khurana`, rating: 5, title: `Fast delivery`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-04-06` },
     { id: `p127-r2`, productId: `p127`, userName: `Meera Kapoor`, rating: 5, title: `Fast delivery`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-05-27` },
     { id: `p127-r3`, productId: `p127`, userName: `Ananya Verma`, rating: 5, title: `Better than expected`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-03-06` }
@@ -1697,7 +1697,7 @@ export const PRODUCTS: Product[] = [
     weight: `16g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/e3315bb22e98.webp`, `https://sfile.chatglm.cn/images-ppt/cb9a73be1a35.jpg`, `https://sfile.chatglm.cn/images-ppt/2f5d03cfe44a.jpg`, `https://sfile.chatglm.cn/images-ppt/50c4983b51e0.jpg`],
     rating: 4.7, reviewCount: 55, stock: 59, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p129-r0`, productId: `p129`, userName: `Arjun Nair`, rating: 4, title: `Excellent quality!`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-17` },
+    { id: `p129-r0`, productId: `p129`, userName: `Arjun Nair`, rating: 4, title: `Excellent quality!`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-17` },
     { id: `p129-r1`, productId: `p129`, userName: `Sneha Reddy`, rating: 5, title: `Excellent quality!`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-02-23` },
     { id: `p129-r2`, productId: `p129`, userName: `Karan Malhotra`, rating: 5, title: `Great purchase`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-02-14` }
     ],
@@ -1712,7 +1712,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p130-r0`, productId: `p130`, userName: `Sneha Reddy`, rating: 3, title: `Satisfied`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-02-04` },
     { id: `p130-r1`, productId: `p130`, userName: `Rajesh Khurana`, rating: 5, title: `Worth every rupee`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-05-20` },
-    { id: `p130-r2`, productId: `p130`, userName: `Priya Mehta`, rating: 4, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-27` },
+    { id: `p130-r2`, productId: `p130`, userName: `Priya Mehta`, rating: 4, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-27` },
     { id: `p130-r3`, productId: `p130`, userName: `Vikram Singh`, rating: 5, title: `Fast delivery`, comment: `Great value for the price. The case that comes with it is also premium.`, date: `2025-01-03` }
     ],
   },
@@ -1765,7 +1765,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.0, reviewCount: 251, stock: 52, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p134-r0`, productId: `p134`, userName: `Sahil Khan`, rating: 4, title: `Fast delivery`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-01-17` },
-    { id: `p134-r1`, productId: `p134`, userName: `Ritu Aggarwal`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-12` },
+    { id: `p134-r1`, productId: `p134`, userName: `Ritu Aggarwal`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-12` },
     { id: `p134-r2`, productId: `p134`, userName: `Sahil Khan`, rating: 3, title: `Highly recommend`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-01-23` }
     ],
   },
@@ -1934,7 +1934,7 @@ export const PRODUCTS: Product[] = [
     weight: `26g`, size: `Extra Large`, images: [`https://sfile.chatglm.cn/images-ppt/9d03261cebac.jpg`, `https://sfile.chatglm.cn/images-ppt/ac32b9d02180.jpg`, `https://sfile.chatglm.cn/images-ppt/5b492e216e24.jpg`, `https://sfile.chatglm.cn/images-ppt/c781153d7786.jpg`],
     rating: 4.6, reviewCount: 135, stock: 51, isFeatured: false, isNew: true, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p147-r0`, productId: `p147`, userName: `Akash Verma`, rating: 4, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-08` },
+    { id: `p147-r0`, productId: `p147`, userName: `Akash Verma`, rating: 4, title: `Perfect fit`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-08` },
     { id: `p147-r1`, productId: `p147`, userName: `Rajesh Khurana`, rating: 5, title: `Excellent quality!`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-05-17` }
     ],
   },
@@ -1947,7 +1947,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8, reviewCount: 52, stock: 78, isFeatured: true, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p148-r0`, productId: `p148`, userName: `Manish Tiwari`, rating: 4, title: `Fast delivery`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-01-24` },
-    { id: `p148-r1`, productId: `p148`, userName: `Manish Tiwari`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-12` },
+    { id: `p148-r1`, productId: `p148`, userName: `Manish Tiwari`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-12` },
     { id: `p148-r2`, productId: `p148`, userName: `Ritu Aggarwal`, rating: 5, title: `Good value for money`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-05-01` }
     ],
   },
@@ -1998,7 +1998,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p152-r0`, productId: `p152`, userName: `Sahil Khan`, rating: 4, title: `Worth every rupee`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-01-11` },
     { id: `p152-r1`, productId: `p152`, userName: `Sonia Mehta`, rating: 5, title: `Premium feel`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-02-07` },
-    { id: `p152-r2`, productId: `p152`, userName: `Akash Verma`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-08` },
+    { id: `p152-r2`, productId: `p152`, userName: `Akash Verma`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-08` },
     { id: `p152-r3`, productId: `p152`, userName: `Akash Verma`, rating: 5, title: `Great purchase`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-04-24` }
     ],
   },
@@ -2035,7 +2035,7 @@ export const PRODUCTS: Product[] = [
     weight: `N/A`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/bfbd773ad656.png`, `https://sfile.chatglm.cn/images-ppt/c781153d7786.jpg`, `https://sfile.chatglm.cn/images-ppt/5ee6eed67d97.jpeg`],
     rating: 4.8, reviewCount: 245, stock: 96, isFeatured: true, isNew: true, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p155-r0`, productId: `p155`, userName: `Ananya Verma`, rating: 4, title: `Satisfied`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-25` },
+    { id: `p155-r0`, productId: `p155`, userName: `Ananya Verma`, rating: 4, title: `Satisfied`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-25` },
     { id: `p155-r1`, productId: `p155`, userName: `Aarav Sharma`, rating: 5, title: `Worth every rupee`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-02-25` }
     ],
   },
@@ -2047,7 +2047,7 @@ export const PRODUCTS: Product[] = [
     weight: `30g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/c781153d7786.jpg`, `https://sfile.chatglm.cn/images-ppt/ac32b9d02180.jpg`, `https://sfile.chatglm.cn/images-ppt/9d03261cebac.jpg`],
     rating: 4.8, reviewCount: 165, stock: 55, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p156-r0`, productId: `p156`, userName: `Akash Verma`, rating: 5, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-13` },
+    { id: `p156-r0`, productId: `p156`, userName: `Akash Verma`, rating: 5, title: `Worth every rupee`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-13` },
     { id: `p156-r1`, productId: `p156`, userName: `Akash Verma`, rating: 3, title: `Excellent quality!`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-03-15` }
     ],
   },
@@ -2059,7 +2059,7 @@ export const PRODUCTS: Product[] = [
     weight: `28g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/ac32b9d02180.jpg`, `https://sfile.chatglm.cn/images-ppt/5ee6eed67d97.jpeg`, `https://sfile.chatglm.cn/images-ppt/861d6fc139b4.jpg`],
     rating: 4.6, reviewCount: 51, stock: 97, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p157-r0`, productId: `p157`, userName: `Ritu Aggarwal`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-15` },
+    { id: `p157-r0`, productId: `p157`, userName: `Ritu Aggarwal`, rating: 5, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-15` },
     { id: `p157-r1`, productId: `p157`, userName: `Manish Tiwari`, rating: 3, title: `Satisfied`, comment: `Comfortable to wear all day. No pressure on the nose or temples.`, date: `2025-01-09` },
     { id: `p157-r2`, productId: `p157`, userName: `Karan Malhotra`, rating: 3, title: `Better than expected`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-01-03` }
     ],
@@ -2124,7 +2124,7 @@ export const PRODUCTS: Product[] = [
     weight: `26g`, size: `Large`, images: [`https://sfile.chatglm.cn/images-ppt/bfbd773ad656.png`, `https://sfile.chatglm.cn/images-ppt/9d03261cebac.jpg`, `https://sfile.chatglm.cn/images-ppt/5b492e216e24.jpg`, `https://sfile.chatglm.cn/images-ppt/c781153d7786.jpg`],
     rating: 4.1, reviewCount: 84, stock: 85, isFeatured: false, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
-    { id: `p162-r0`, productId: `p162`, userName: `Karan Malhotra`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-19` },
+    { id: `p162-r0`, productId: `p162`, userName: `Karan Malhotra`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-19` },
     { id: `p162-r1`, productId: `p162`, userName: `Karan Malhotra`, rating: 5, title: `Good value for money`, comment: `Got many compliments. The try-on feature helped me choose the perfect frame.`, date: `2025-03-27` },
     { id: `p162-r2`, productId: `p162`, userName: `Aarav Sharma`, rating: 5, title: `Worth every rupee`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-02-19` },
     { id: `p162-r3`, productId: `p162`, userName: `Kavya Rao`, rating: 5, title: `Highly recommend`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-01-28` }
@@ -2153,7 +2153,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8, reviewCount: 332, stock: 119, isFeatured: true, isNew: false, isBestSeller: false, isOffer: true,
     reviews: [
     { id: `p164-r0`, productId: `p164`, userName: `Karan Malhotra`, rating: 5, title: `Better than expected`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-03-05` },
-    { id: `p164-r1`, productId: `p164`, userName: `Ananya Verma`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-18` },
+    { id: `p164-r1`, productId: `p164`, userName: `Ananya Verma`, rating: 5, title: `Good value for money`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-18` },
     { id: `p164-r2`, productId: `p164`, userName: `Akash Verma`, rating: 4, title: `Satisfied`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-03-18` },
     { id: `p164-r3`, productId: `p164`, userName: `Karan Malhotra`, rating: 5, title: `Highly recommend`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-05-08` }
     ],
@@ -2231,7 +2231,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p170-r0`, productId: `p170`, userName: `Meera Kapoor`, rating: 4, title: `Worth every rupee`, comment: `Beautiful design and the color is exactly as shown in the photos.`, date: `2025-01-19` },
     { id: `p170-r1`, productId: `p170`, userName: `Sonia Mehta`, rating: 3, title: `Satisfied`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-03-14` },
-    { id: `p170-r2`, productId: `p170`, userName: `Neha Pandey`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-19` }
+    { id: `p170-r2`, productId: `p170`, userName: `Neha Pandey`, rating: 5, title: `Great purchase`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-19` }
     ],
   },
   {
@@ -2242,9 +2242,9 @@ export const PRODUCTS: Product[] = [
     weight: `14g`, size: `Small`, images: [`https://sfile.chatglm.cn/images-ppt/d39d28a4074e.png`, `https://sfile.chatglm.cn/images-ppt/7c8a67cb46db.jpg`, `https://sfile.chatglm.cn/images-ppt/16d95115d9bc.jpg`],
     rating: 4.8, reviewCount: 243, stock: 71, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p171-r0`, productId: `p171`, userName: `Priya Mehta`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-04-15` },
+    { id: `p171-r0`, productId: `p171`, userName: `Priya Mehta`, rating: 5, title: `Premium feel`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-04-15` },
     { id: `p171-r1`, productId: `p171`, userName: `Akash Verma`, rating: 5, title: `Fast delivery`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-04-12` },
-    { id: `p171-r2`, productId: `p171`, userName: `Pooja Bhatt`, rating: 5, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-24` },
+    { id: `p171-r2`, productId: `p171`, userName: `Pooja Bhatt`, rating: 5, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-24` },
     { id: `p171-r3`, productId: `p171`, userName: `Pooja Bhatt`, rating: 3, title: `Fast delivery`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-01-21` }
     ],
   },
@@ -2308,7 +2308,7 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p176-r0`, productId: `p176`, userName: `Sneha Reddy`, rating: 5, title: `Love it!`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-01-02` },
     { id: `p176-r1`, productId: `p176`, userName: `Rohit Gupta`, rating: 4, title: `Fast delivery`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-04-01` },
-    { id: `p176-r2`, productId: `p176`, userName: `Sonia Mehta`, rating: 4, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-22` },
+    { id: `p176-r2`, productId: `p176`, userName: `Sonia Mehta`, rating: 4, title: `Better than expected`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-22` },
     { id: `p176-r3`, productId: `p176`, userName: `Sahil Khan`, rating: 5, title: `Highly recommend`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-04-19` }
     ],
   },
@@ -2351,7 +2351,7 @@ export const PRODUCTS: Product[] = [
     { id: `p179-r0`, productId: `p179`, userName: `Neha Pandey`, rating: 4, title: `Great purchase`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-01-19` },
     { id: `p179-r1`, productId: `p179`, userName: `Ananya Verma`, rating: 5, title: `Good value for money`, comment: `Stylish design and the lenses are perfectly adjusted. Comfortable for daily wear.`, date: `2025-03-05` },
     { id: `p179-r2`, productId: `p179`, userName: `Ritu Aggarwal`, rating: 4, title: `Love it!`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-05-06` },
-    { id: `p179-r3`, productId: `p179`, userName: `Nitin Joshi`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-04` }
+    { id: `p179-r3`, productId: `p179`, userName: `Nitin Joshi`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-04` }
     ],
   },
   {
@@ -2362,7 +2362,7 @@ export const PRODUCTS: Product[] = [
     weight: `26g`, size: `Medium`, images: [`https://sfile.chatglm.cn/images-ppt/a2a11d401eb3.jpg`, `https://sfile.chatglm.cn/images-ppt/16d95115d9bc.jpg`, `https://sfile.chatglm.cn/images-ppt/d39d28a4074e.png`],
     rating: 4.6, reviewCount: 150, stock: 58, isFeatured: true, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p180-r0`, productId: `p180`, userName: `Meera Kapoor`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-05-06` },
+    { id: `p180-r0`, productId: `p180`, userName: `Meera Kapoor`, rating: 4, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-05-06` },
     { id: `p180-r1`, productId: `p180`, userName: `Sonia Mehta`, rating: 5, title: `Good value for money`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-03-14` },
     { id: `p180-r2`, productId: `p180`, userName: `Aarav Sharma`, rating: 5, title: `Satisfied`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-01-17` }
     ],
@@ -2433,7 +2433,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p186`, name: `Screwdriver Tool Kit Rectangle`, slug: `screwdriver-tool-kit-186`, brand: `Italia Pro`,
-    description: `Premium gold brown eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium gold brown eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 688, mrp: 1387, discount: 50, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `rectangle`, frameColor: `Gold Brown`, gender: `men`, material: `Stainless Steel`,
     weight: `20g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`],
@@ -2446,20 +2446,20 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p187`, name: `Anti-Fog Wipes Aviator`, slug: `anti-fog-wipes-187`, brand: `Italia Femme`,
-    description: `Premium matte black eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium matte black eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 310, mrp: 500, discount: 38, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `aviator`, frameColor: `Matte Black`, gender: `unisex`, material: `Acetate`,
     weight: `20g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`, `https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`],
     rating: 4.2, reviewCount: 326, stock: 7, isFeatured: true, isNew: true, isBestSeller: true, isOffer: false,
     reviews: [
-    { id: `p187-r0`, productId: `p187`, userName: `Ritu Aggarwal`, rating: 5, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-07` },
+    { id: `p187-r0`, productId: `p187`, userName: `Ritu Aggarwal`, rating: 5, title: `Love it!`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-07` },
     { id: `p187-r1`, productId: `p187`, userName: `Rohit Gupta`, rating: 4, title: `Satisfied`, comment: `The blue light filtering really helps with my screen time. Highly recommend.`, date: `2025-03-14` },
     { id: `p187-r2`, productId: `p187`, userName: `Manish Tiwari`, rating: 5, title: `Better than expected`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-04-19` }
     ],
   },
   {
     id: `p188`, name: `Travel Case Hard Aviator`, slug: `travel-case-hard-188`, brand: `Italia Care`,
-    description: `Premium charcoal eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium charcoal eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 334, mrp: 711, discount: 53, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `aviator`, frameColor: `Charcoal`, gender: `unisex`, material: `Polycarbonate`,
     weight: `22g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`],
@@ -2473,7 +2473,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p189`, name: `UV Sanitizer Box Square`, slug: `uv-sanitizer-box-189`, brand: `Italia Care`,
-    description: `Premium sapphire eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium sapphire eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 224, mrp: 399, discount: 44, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `square`, frameColor: `Sapphire`, gender: `unisex`, material: `Acetate`,
     weight: `22g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`],
@@ -2487,7 +2487,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p190`, name: `Nose Pads Replacement Square`, slug: `nose-pads-replacement-190`, brand: `Italia Active`,
-    description: `Premium tortoise eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium tortoise eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 655, mrp: 1292, discount: 49, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `square`, frameColor: `Tortoise`, gender: `men`, material: `Polycarbonate`,
     weight: `N/A`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`],
@@ -2500,7 +2500,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p191`, name: `Lens Pen Cleaner Hexagon`, slug: `lens-pen-cleaner-191`, brand: `Italia Pro`,
-    description: `Premium ivory eyewear accessory. Titanium construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium ivory eyewear accessory. Titanium construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 411, mrp: 703, discount: 42, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `hexagon`, frameColor: `Ivory`, gender: `men`, material: `Titanium`,
     weight: `12g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`],
@@ -2513,7 +2513,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p192`, name: `Premium Leather Case Rectangle`, slug: `premium-leather-case-192`, brand: `Italia Pro`,
-    description: `Premium forest green eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium forest green eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 868, mrp: 1706, discount: 49, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `rectangle`, frameColor: `Forest Green`, gender: `kids`, material: `Acetate`,
     weight: `14g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`],
@@ -2526,7 +2526,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p193`, name: `Microfiber Cleaning Kit Rectangle`, slug: `microfiber-cleaning-kit-193`, brand: `Italia Active`,
-    description: `Premium honey eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium honey eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 495, mrp: 843, discount: 41, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `rectangle`, frameColor: `Honey`, gender: `unisex`, material: `Acetate`,
     weight: `16g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`],
@@ -2540,7 +2540,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p194`, name: `Travel Case Hard Oval`, slug: `travel-case-hard-194`, brand: `Italia Care`,
-    description: `Premium sapphire eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium sapphire eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 670, mrp: 1434, discount: 53, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `oval`, frameColor: `Sapphire`, gender: `men`, material: `TR90`,
     weight: `26g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`],
@@ -2552,7 +2552,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p195`, name: `Lens Spray Bottle Round`, slug: `lens-spray-bottle-195`, brand: `Italia Femme`,
-    description: `Premium sky blue eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium sky blue eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 242, mrp: 396, discount: 39, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `round`, frameColor: `Sky Blue`, gender: `kids`, material: `TR90`,
     weight: `14g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`],
@@ -2564,7 +2564,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p196`, name: `Hard Shell Case Hexagon`, slug: `hard-shell-case-196`, brand: `Italia Care`,
-    description: `Premium pearl white eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium pearl white eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 782, mrp: 1210, discount: 35, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `hexagon`, frameColor: `Pearl White`, gender: `women`, material: `Polycarbonate`,
     weight: `28g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`, `https://sfile.chatglm.cn/images-ppt/4273f5b4aee9.jpeg`, `https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`],
@@ -2577,7 +2577,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p197`, name: `Travel Case Hard Aviator`, slug: `travel-case-hard-197`, brand: `Italia Pro`,
-    description: `Premium sky blue eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium sky blue eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 494, mrp: 933, discount: 47, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `aviator`, frameColor: `Sky Blue`, gender: `unisex`, material: `Stainless Steel`,
     weight: `26g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`],
@@ -2590,7 +2590,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p198`, name: `Eyewear Stand Wood Oval`, slug: `eyewear-stand-wood-198`, brand: `Italia Femme`,
-    description: `Premium matte black eyewear accessory. Metal construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium matte black eyewear accessory. Metal construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 402, mrp: 698, discount: 42, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `oval`, frameColor: `Matte Black`, gender: `men`, material: `Metal`,
     weight: `30g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`, `https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`],
@@ -2598,13 +2598,13 @@ export const PRODUCTS: Product[] = [
     reviews: [
     { id: `p198-r0`, productId: `p198`, userName: `Sahil Khan`, rating: 5, title: `Premium feel`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-02-25` },
     { id: `p198-r1`, productId: `p198`, userName: `Nitin Joshi`, rating: 4, title: `Good value for money`, comment: `Excellent build quality. Feels durable and the lenses are crystal clear.`, date: `2025-04-16` },
-    { id: `p198-r2`, productId: `p198`, userName: `Meera Kapoor`, rating: 3, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-01-24` },
-    { id: `p198-r3`, productId: `p198`, userName: `Priya Mehta`, rating: 4, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-02-13` }
+    { id: `p198-r2`, productId: `p198`, userName: `Meera Kapoor`, rating: 3, title: `Highly recommend`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-01-24` },
+    { id: `p198-r3`, productId: `p198`, userName: `Priya Mehta`, rating: 4, title: `Stylish and comfortable`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-02-13` }
     ],
   },
   {
     id: `p199`, name: `Display Stand Metal Square`, slug: `display-stand-metal-199`, brand: `Italia Vision`,
-    description: `Premium forest green eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium forest green eyewear accessory. Acetate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 875, mrp: 1772, discount: 51, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `square`, frameColor: `Forest Green`, gender: `men`, material: `Acetate`,
     weight: `22g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`],
@@ -2617,20 +2617,20 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p200`, name: `Lens Spray Bottle Oval`, slug: `lens-spray-bottle-200`, brand: `Italia Luxe`,
-    description: `Premium bronze eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium bronze eyewear accessory. TR90 construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 774, mrp: 1623, discount: 52, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `oval`, frameColor: `Bronze`, gender: `kids`, material: `TR90`,
     weight: `20g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`],
     rating: 4.6, reviewCount: 185, stock: 103, isFeatured: false, isNew: false, isBestSeller: false, isOffer: false,
     reviews: [
-    { id: `p200-r0`, productId: `p200`, userName: `Divya Iyer`, rating: 3, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Italia Optical.`, date: `2025-03-13` },
+    { id: `p200-r0`, productId: `p200`, userName: `Divya Iyer`, rating: 3, title: `Fast delivery`, comment: `The frame is lightweight and looks premium. Fast delivery by Village Eyecare.`, date: `2025-03-13` },
     { id: `p200-r1`, productId: `p200`, userName: `Sneha Reddy`, rating: 5, title: `Great purchase`, comment: `Perfect prescription match. The staff was super helpful with the selection.`, date: `2025-04-12` },
     { id: `p200-r2`, productId: `p200`, userName: `Priya Mehta`, rating: 3, title: `Satisfied`, comment: `Good product and the frame quality is top notch. Will buy again.`, date: `2025-02-21` }
     ],
   },
   {
     id: `p201`, name: `Chain Strap Gold Round`, slug: `chain-strap-gold-201`, brand: `Italia Luxe`,
-    description: `Premium onyx eyewear accessory. Metal construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium onyx eyewear accessory. Metal construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 316, mrp: 548, discount: 42, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `round`, frameColor: `Onyx`, gender: `men`, material: `Metal`,
     weight: `12g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`, `https://sfile.chatglm.cn/images-ppt/4273f5b4aee9.jpeg`],
@@ -2644,7 +2644,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p202`, name: `Chain Strap Gold Aviator`, slug: `chain-strap-gold-202`, brand: `Italia Luxe`,
-    description: `Premium gold brown eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium gold brown eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 791, mrp: 1238, discount: 36, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `aviator`, frameColor: `Gold Brown`, gender: `men`, material: `Stainless Steel`,
     weight: `14g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/783f4a4d39a3.jpg`],
@@ -2658,7 +2658,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p203`, name: `Lens Pen Cleaner Oval`, slug: `lens-pen-cleaner-203`, brand: `Italia Luxe`,
-    description: `Premium rose gold eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium rose gold eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 404, mrp: 709, discount: 43, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `oval`, frameColor: `Rose Gold`, gender: `men`, material: `Polycarbonate`,
     weight: `14g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`, `https://sfile.chatglm.cn/images-ppt/a9565f27025a.jpg`],
@@ -2672,7 +2672,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p204`, name: `Temple Tips Soft Oval`, slug: `temple-tips-soft-204`, brand: `Italia Active`,
-    description: `Premium sapphire eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium sapphire eyewear accessory. Stainless Steel construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 242, mrp: 526, discount: 54, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `oval`, frameColor: `Sapphire`, gender: `women`, material: `Stainless Steel`,
     weight: `24g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/db66e133c306.jpg`, `https://sfile.chatglm.cn/images-ppt/e6cb0c945e61.jpg`, `https://sfile.chatglm.cn/images-ppt/ac2bb14c96ca.jpg`, `https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`],
@@ -2684,7 +2684,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: `p205`, name: `Display Stand Metal Hexagon`, slug: `display-stand-metal-205`, brand: `Italia Femme`,
-    description: `Premium wine red eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Italia Optical branded.`,
+    description: `Premium wine red eyewear accessory. Polycarbonate construction with quality finish. Compatible with most frame sizes. Village Eyecare branded.`,
     price: 953, mrp: 1689, discount: 44, categoryId: `c7`, categorySlug: `accessories`,
     frameShape: `hexagon`, frameColor: `Wine Red`, gender: `unisex`, material: `Polycarbonate`,
     weight: `24g`, size: `One Size`, images: [`https://sfile.chatglm.cn/images-ppt/a429701f1f48.jpg`, `https://sfile.chatglm.cn/images-ppt/b5c1fff0f338.jpg`, `https://sfile.chatglm.cn/images-ppt/535b641ad0a7.jpg`, `https://sfile.chatglm.cn/images-ppt/072e4b1fa882.jpeg`],
@@ -2711,7 +2711,7 @@ export const COUPONS = OFFERS;
 
 // ===== STORE INFO =====
 export const STORE_INFO = {
-  name: 'Italia Optical',
+  name: 'Village Eyecare',
   tagline: 'See Better Than Yesterday',
   phone: '+91 87082-70548',
   phoneRaw: '918708270548',
