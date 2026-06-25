@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Village Eyecare - Instagram Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 1080px 1350px;
+    margin: 0;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a1628;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .poster {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #2563eb 100%);
+    overflow: hidden;
+    color: #fff;
+  }
+  /* Decorative glow circles */
+  .glow-1 {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 165, 90, 0.35) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+  .glow-2 {
+    position: absolute;
+    bottom: -250px;
+    left: -250px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.5) 0%, transparent 70%);
+    filter: blur(80px);
+  }
+  .glow-3 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    filter: blur(50px);
+  }
+
+  /* Top bar */
+  .top-bar {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #c9a55a 0%, #8b6f2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(201, 165, 90, 0.4);
+  }
+  .logo-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 0.5px;
+  }
+  .brand-tagline {
+    font-size: 11px;
+    color: #c9a55a;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .offer-badge {
+    background: linear-gradient(135deg, #c9a55a 0%, #f3d77a 100%);
+    color: #0a1628;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(201, 165, 90, 0.5);
+  }
+
+  /* Hero image area */
+  .hero-image-wrap {
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 760px;
+    height: 460px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 5;
+  }
+  .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.4) 0%, transparent 50%);
+  }
+  .floating-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    color: #0a1628;
+    padding: 12px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .floating-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+  }
+  .floating-badge span {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* Main content */
+  .content {
+    position: absolute;
+    top: 640px;
+    left: 60px;
+    right: 60px;
+    z-index: 10;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.95;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .headline .gold {
+    background: linear-gradient(135deg, #c9a55a 0%, #f3d77a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-style: italic;
+  }
+  .subheadline {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+
+  /* Feature pills */
+  .features {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .feature-pill {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 22px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .feature-pill svg {
+    width: 18px;
+    height: 18px;
+    color: #c9a55a;
+  }
+
+  /* Stats row */
+  .stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 36px;
+    padding: 24px 32px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: #c9a55a;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .stat-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* CTA */
+  .cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+  .contact-item svg {
+    width: 16px;
+    height: 16px;
+    color: #c9a55a;
+    flex-shrink: 0;
+  }
+  .qr-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 14px 22px;
+    border-radius: 16px;
+  }
+  .qr-code {
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-code svg {
+    width: 56px;
+    height: 56px;
+  }
+  .qr-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .qr-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .qr-value {
+    font-size: 16px;
+    color: #0a1628;
+    font-weight: 800;
+    margin-top: 2px;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 10;
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+  .social svg {
+    width: 18px;
+    height: 18px;
+    color: #c9a55a;
+  }
+  .website {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+  }
+  .website strong {
+    color: #c9a55a;
+    font-weight: 700;
+  }
+
+  /* Decorative eyeglasses icon */
+  .eyeglass-deco {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    opacity: 0.08;
+    z-index: 1;
+  }
+  .eyeglass-deco svg {
+    width: 400px;
+    height: 400px;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <!-- Decorative glows -->
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+
+  <!-- Decorative eyeglasses -->
+  <div class="eyeglass-deco">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="30" cy="50" r="20"/>
+      <circle cx="70" cy="50" r="20"/>
+      <line x1="50" y1="50" x2="50" y2="50" stroke-width="3"/>
+      <line x1="10" y1="50" x2="5" y2="45"/>
+      <line x1="90" y1="50" x2="95" y2="45"/>
+    </svg>
+  </div>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="brand">
+      <div class="logo-icon">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="30" cy="50" r="18"/>
+          <circle cx="70" cy="50" r="18"/>
+          <line x1="48" y1="50" x2="52" y2="50"/>
+          <line x1="12" y1="46" x2="8" y2="42"/>
+          <line x1="88" y1="46" x2="92" y2="42"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Village Eyecare</span>
+        <span class="brand-tagline">See Better Than Yesterday</span>
+      </div>
+    </div>
+    <div class="offer-badge">MEGA SALE</div>
+  </div>
+
+  <!-- Hero image -->
+  <div class="hero-image-wrap">
+    <img src="../public/videos/ad-poster-2.png" alt="Premium Eyewear">
+    <div class="hero-overlay"></div>
+    <div class="floating-badge">
+      <span class="dot"></span>
+      <span>200+ Premium Styles</span>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <h1 class="headline">
+      See Better<br>
+      Than <span class="gold">Yesterday</span>
+    </h1>
+    <p class="subheadline">
+      Premium eyeglasses, sunglasses & contact lenses at up to 60% OFF.
+      Virtual try-on, free delivery & COD available.
+    </p>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="feature-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Virtual Try-On
+      </div>
+      <div class="feature-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Free Eye Test
+      </div>
+      <div class="feature-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 12H6L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        7-Day Returns
+      </div>
+      <div class="feature-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+        COD Available
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">200+</span>
+        <span class="stat-label">Premium Styles</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">60%</span>
+        <span class="stat-label">Max Discount</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">4.8★</span>
+        <span class="stat-label">Customer Rating</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +91 87082-70548
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Kunjpura Road, Karnal
+        </div>
+      </div>
+      <div class="qr-section">
+        <div class="qr-code">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#fff"/>
+            <!-- QR pattern -->
+            <g fill="#0a1628">
+              <!-- Top-left finder -->
+              <rect x="5" y="5" width="25" height="25"/>
+              <rect x="9" y="9" width="17" height="17" fill="#fff"/>
+              <rect x="12" y="12" width="11" height="11"/>
+              <!-- Top-right finder -->
+              <rect x="70" y="5" width="25" height="25"/>
+              <rect x="74" y="9" width="17" height="17" fill="#fff"/>
+              <rect x="77" y="12" width="11" height="11"/>
+              <!-- Bottom-left finder -->
+              <rect x="5" y="70" width="25" height="25"/>
+              <rect x="9" y="74" width="17" height="17" fill="#fff"/>
+              <rect x="12" y="77" width="11" height="11"/>
+              <!-- Data dots -->
+              <rect x="35" y="5" width="4" height="4"/>
+              <rect x="42" y="5" width="4" height="4"/>
+              <rect x="49" y="5" width="4" height="4"/>
+              <rect x="56" y="5" width="4" height="4"/>
+              <rect x="35" y="12" width="4" height="4"/>
+              <rect x="49" y="12" width="4" height="4"/>
+              <rect x="63" y="12" width="4" height="4"/>
+              <rect x="35" y="19" width="4" height="4"/>
+              <rect x="42" y="19" width="4" height="4"/>
+              <rect x="56" y="19" width="4" height="4"/>
+              <rect x="42" y="26" width="4" height="4"/>
+              <rect x="49" y="26" width="4" height="4"/>
+              <rect x="63" y="26" width="4" height="4"/>
+              <rect x="5" y="35" width="4" height="4"/>
+              <rect x="12" y="35" width="4" height="4"/>
+              <rect x="26" y="35" width="4" height="4"/>
+              <rect x="35" y="35" width="4" height="4"/>
+              <rect x="49" y="35" width="4" height="4"/>
+              <rect x="56" y="35" width="4" height="4"/>
+              <rect x="70" y="35" width="4" height="4"/>
+              <rect x="84" y="35" width="4" height="4"/>
+              <rect x="91" y="35" width="4" height="4"/>
+              <rect x="5" y="42" width="4" height="4"/>
+              <rect x="19" y="42" width="4" height="4"/>
+              <rect x="35" y="42" width="4" height="4"/>
+              <rect x="42" y="42" width="4" height="4"/>
+              <rect x="56" y="42" width="4" height="4"/>
+              <rect x="63" y="42" width="4" height="4"/>
+              <rect x="77" y="42" width="4" height="4"/>
+              <rect x="84" y="42" width="4" height="4"/>
+              <rect x="12" y="49" width="4" height="4"/>
+              <rect x="26" y="49" width="4" height="4"/>
+              <rect x="42" y="49" width="4" height="4"/>
+              <rect x="49" y="49" width="4" height="4"/>
+              <rect x="70" y="49" width="4" height="4"/>
+              <rect x="91" y="49" width="4" height="4"/>
+              <rect x="5" y="56" width="4" height="4"/>
+              <rect x="19" y="56" width="4" height="4"/>
+              <rect x="35" y="56" width="4" height="4"/>
+              <rect x="49" y="56" width="4" height="4"/>
+              <rect x="63" y="56" width="4" height="4"/>
+              <rect x="77" y="56" width="4" height="4"/>
+              <rect x="84" y="56" width="4" height="4"/>
+              <rect x="91" y="56" width="4" height="4"/>
+              <rect x="12" y="63" width="4" height="4"/>
+              <rect x="26" y="63" width="4" height="4"/>
+              <rect x="35" y="63" width="4" height="4"/>
+              <rect x="42" y="63" width="4" height="4"/>
+              <rect x="56" y="63" width="4" height="4"/>
+              <rect x="70" y="63" width="4" height="4"/>
+              <rect x="84" y="63" width="4" height="4"/>
+              <rect x="35" y="70" width="4" height="4"/>
+              <rect x="49" y="70" width="4" height="4"/>
+              <rect x="63" y="70" width="4" height="4"/>
+              <rect x="77" y="70" width="4" height="4"/>
+              <rect x="91" y="70" width="4" height="4"/>
+              <rect x="42" y="77" width="4" height="4"/>
+              <rect x="56" y="77" width="4" height="4"/>
+              <rect x="70" y="77" width="4" height="4"/>
+              <rect x="84" y="77" width="4" height="4"/>
+              <rect x="35" y="84" width="4" height="4"/>
+              <rect x="49" y="84" width="4" height="4"/>
+              <rect x="63" y="84" width="4" height="4"/>
+              <rect x="77" y="84" width="4" height="4"/>
+              <rect x="91" y="84" width="4" height="4"/>
+              <rect x="42" y="91" width="4" height="4"/>
+              <rect x="56" y="91" width="4" height="4"/>
+              <rect x="70" y="91" width="4" height="4"/>
+              <rect x="84" y="91" width="4" height="4"/>
+            </g>
+          </svg>
+        </div>
+        <div class="qr-text">
+          <span class="qr-label">Scan to Shop</span>
+          <span class="qr-value">Online Store</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+      @village_eyecare.rk
+    </div>
+    <div class="website">
+      Visit: <strong>github.com/ramshi122/village-eyecare</strong>
+    </div>
+  </div>
+</div>
+</body>
+</html>
